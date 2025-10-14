@@ -7,3 +7,5 @@ codellama-13b.Q4_K_M.gguf
 
 ssl/
 .env
+
+CodeLlama-13b-hf/
