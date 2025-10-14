@@ -1,0 +1,1032 @@
+{
+    "name": "ACLOceanToJTCanonicalMapper",
+    "localContext": {
+        "globalVariables": [],
+        "functions": [],
+        "lookupTables": [],
+        "classes": [
+            {
+                "name": "Stop implements Cloneable",
+                "value": "import java.text.SimpleDateFormat;\n\nclass Stop implements Cloneable{\n    String stopType = \"\"\n    String locName = \"\"\n    String locCity = \"\"\n    String locState = \"\"\n    String locCountry = \"\"\n    String terminal = \"\"\n    int stopIndex = 0\n}",
+                "shortValue": "import java.text.SimpleDateFormat;..."
+            },
+            {
+                "name": "Event implements Cloneable",
+                "value": "class Event implements Cloneable{\n     String status = \"\"\n     String eventCode = \"\"\n     String eventQualifier = \"\"\n     String eventTime = \"\"\n     String eventLocName = \"\"\n     String eventLocCity = \"\"\n     String eventLocState = \"\"\n     String eventLocCountry = \"\"\n     String eventTerminal = \"\"\n     String vesselName = \"\"\n     String voyageNo = \"\"\n     String eventStopType = \"\"\n}",
+                "shortValue": "class Event implements Cloneable{..."
+            }
+        ]
+    },
+    "testInput": "{\n    \"refNum\": \"SA00624796\",\n    \"refType\": \"Booking\",\n    \"jtCarrierName\": null,\n    \"origin\": null,\n    \"destination\": null,\n    \"currentStatus\": null,\n    \"bookingNum\": \"SA00624796\",\n    \"bolNum\": null,\n    \"additionalInfo\": null,\n    \"containers\": [\n      {\n        \"containerType\": null,\n        \"containerNum\": \"ATLA0700080\",\n        \"stops\": null,\n        \"events\": [\n          {\n            \"mode\": null,\n            \"status\": \"Stuffed at On 03/09/21 13:17\",\n            \"eventCode\": null,\n            \"eventTime\": null,\n            \"eventQualifier\": null,\n            \"location\": {\n              \"name\": null,\n              \"city\": null,\n              \"state\": null,\n              \"country\": null,\n              \"latitude\": null,\n              \"longitude\": null,\n              \"unloCode\": null,\n              \"terminal\": null\n            },\n            \"stopIndex\": \"0\",\n            \"vesselInfo\": null,\n            \"voyageReference\": null,\n            \"additionalInfo\": null\n          },\n          {\n            \"mode\": null,\n            \"status\": \"Loaded full on vessel ATLANTIC SUN/ASU6821 for Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222 On 03/13/21 08:15 Sail Date 03/14/21 09:54. The ETA at the port of Discharge -03/29/21 18:48\",\n            \"eventCode\": null,\n            \"eventTime\": null,\n            \"eventQualifier\": null,\n            \"location\": {\n              \"name\": null,\n              \"city\": null,\n              \"state\": null,\n              \"country\": null,\n              \"latitude\": null,\n              \"longitude\": null,\n              \"unloCode\": null,\n              \"terminal\": null\n            },\n            \"stopIndex\": \"0\",\n            \"vesselInfo\": null,\n            \"voyageReference\": null,\n            \"additionalInfo\": null\n          },\n          {\n            \"mode\": null,\n            \"status\": \"Discharged from vessel ATLANTIC SUN/ASU6821 at Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222 On 03/30/21 00:00\",\n            \"eventCode\": null,\n            \"eventTime\": null,\n            \"eventQualifier\": null,\n            \"location\": {\n              \"name\": null,\n              \"city\": null,\n              \"state\": null,\n              \"country\": null,\n              \"latitude\": null,\n              \"longitude\": null,\n              \"unloCode\": null,\n              \"terminal\": null\n            },\n            \"stopIndex\": \"0\",\n            \"vesselInfo\": null,\n            \"voyageReference\": null,\n            \"additionalInfo\": null\n          },\n          {\n            \"mode\": null,\n            \"status\": \"Stripped at On 03/31/21 00:00\",\n            \"eventCode\": null,\n            \"eventTime\": null,\n            \"eventQualifier\": null,\n            \"location\": {\n              \"name\": null,\n              \"city\": null,\n              \"state\": null,\n              \"country\": null,\n              \"latitude\": null,\n              \"longitude\": null,\n              \"unloCode\": null,\n              \"terminal\": null\n            },\n            \"stopIndex\": \"0\",\n            \"vesselInfo\": null,\n            \"voyageReference\": null,\n            \"additionalInfo\": null\n          }\n        ],\n        \"routes\": [\n          \n        ],\n        \"vesselMovements\": [\n          \n        ],\n        \"cargoDeliveryInformationUsImportOnly\": null,\n        \"podETA\": null,\n        \"additionalInfo\": null\n      },\n      {\n        \"containerType\": null,\n        \"containerNum\": \"ACLU0800595\",\n        \"stops\": null,\n        \"events\": [\n          {\n            \"mode\": null,\n            \"status\": \"Stuffed at On 03/09/21 13:15\",\n            \"eventCode\": null,\n            \"eventTime\": null,\n            \"eventQualifier\": null,\n            \"location\": {\n              \"name\": null,\n              \"city\": null,\n              \"state\": null,\n              \"country\": null,\n              \"latitude\": null,\n              \"longitude\": null,\n              \"unloCode\": null,\n              \"terminal\": null\n            },\n            \"stopIndex\": \"0\",\n            \"vesselInfo\": null,\n            \"voyageReference\": null,\n            \"additionalInfo\": null\n          },\n          {\n            \"mode\": null,\n            \"status\": \"Loaded full on vessel ATLANTIC SUN/ASU6821 for Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222 On 03/13/21 17:12 Sail Date 03/14/21 09:54. The ETA at the port of Discharge -03/29/21 18:48\",\n            \"eventCode\": null,\n            \"eventTime\": null,\n            \"eventQualifier\": null,\n            \"location\": {\n              \"name\": null,\n              \"city\": null,\n              \"state\": null,\n              \"country\": null,\n              \"latitude\": null,\n              \"longitude\": null,\n              \"unloCode\": null,\n              \"terminal\": null\n            },\n            \"stopIndex\": \"0\",\n            \"vesselInfo\": null,\n            \"voyageReference\": null,\n            \"additionalInfo\": null\n          },\n          {\n            \"mode\": null,\n            \"status\": \"Discharged from vessel ATLANTIC SUN/ASU6821 at Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222 On 03/30/21 00:00\",\n            \"eventCode\": null,\n            \"eventTime\": null,\n            \"eventQualifier\": null,\n            \"location\": {\n              \"name\": null,\n              \"city\": null,\n              \"state\": null,\n              \"country\": null,\n              \"latitude\": null,\n              \"longitude\": null,\n              \"unloCode\": null,\n              \"terminal\": null\n            },\n            \"stopIndex\": \"0\",\n            \"vesselInfo\": null,\n            \"voyageReference\": null,\n            \"additionalInfo\": null\n          },\n          {\n            \"mode\": null,\n            \"status\": \"Stripped at On 03/31/21 00:00\",\n            \"eventCode\": null,\n            \"eventTime\": null,\n            \"eventQualifier\": null,\n            \"location\": {\n              \"name\": null,\n              \"city\": null,\n              \"state\": null,\n              \"country\": null,\n              \"latitude\": null,\n              \"longitude\": null,\n              \"unloCode\": null,\n              \"terminal\": null\n            },\n            \"stopIndex\": \"0\",\n            \"vesselInfo\": null,\n            \"voyageReference\": null,\n            \"additionalInfo\": null\n          }\n        ],\n        \"routes\": [\n          \n        ],\n        \"vesselMovements\": [\n          \n        ],\n        \"cargoDeliveryInformationUsImportOnly\": null,\n        \"podETA\": null,\n        \"additionalInfo\": null\n      }\n    ],\n    \"logs\": null\n  }",
+    "modelVersion": 8,
+    "targetInputType": "JSON",
+    "sourceInputType": "JSON",
+    "outputProlog": {
+        "name": "Prolog script"
+    },
+    "outputEpilog": {
+        "name": "Epilog script"
+    },
+    "sourceTreeNode": {
+        "name": "root",
+        "children": [
+            {
+                "name": "refNum",
+                "value": "SA00624796",
+                "plain": true
+            },
+            {
+                "name": "refType",
+                "value": "Booking",
+                "plain": true
+            },
+            {
+                "name": "jtCarrierName"
+            },
+            {
+                "name": "origin"
+            },
+            {
+                "name": "destination"
+            },
+            {
+                "name": "currentStatus"
+            },
+            {
+                "name": "bookingNum",
+                "value": "SA00624796",
+                "plain": true
+            },
+            {
+                "name": "bolNum"
+            },
+            {
+                "name": "additionalInfo"
+            },
+            {
+                "name": "containers",
+                "type": "ar",
+                "children": [
+                    {
+                        "name": "[0]",
+                        "type": "ac",
+                        "children": [
+                            {
+                                "name": "containerType"
+                            },
+                            {
+                                "name": "containerNum",
+                                "value": "ATLA0700080",
+                                "plain": true
+                            },
+                            {
+                                "name": "stops"
+                            },
+                            {
+                                "name": "events",
+                                "type": "ar",
+                                "children": [
+                                    {
+                                        "name": "[0]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Stuffed at On 03/09/21 13:17",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime"
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name"
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "stopIndex",
+                                                "value": "0",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "vesselInfo"
+                                            },
+                                            {
+                                                "name": "voyageReference"
+                                            },
+                                            {
+                                                "name": "additionalInfo"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[1]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Loaded full on vessel ATLANTIC SUN/ASU6821 for Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222 On 03/13/21 08:15 Sail Date 03/14/21 09:54. The ETA at the port of Discharge -03/29/21 18:48",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime"
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name"
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "stopIndex",
+                                                "value": "0",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "vesselInfo"
+                                            },
+                                            {
+                                                "name": "voyageReference"
+                                            },
+                                            {
+                                                "name": "additionalInfo"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[2]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Discharged from vessel ATLANTIC SUN/ASU6821 at Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222 On 03/30/21 00:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime"
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name"
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "stopIndex",
+                                                "value": "0",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "vesselInfo"
+                                            },
+                                            {
+                                                "name": "voyageReference"
+                                            },
+                                            {
+                                                "name": "additionalInfo"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[3]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Stripped at On 03/31/21 00:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime"
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name"
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "stopIndex",
+                                                "value": "0",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "vesselInfo"
+                                            },
+                                            {
+                                                "name": "voyageReference"
+                                            },
+                                            {
+                                                "name": "additionalInfo"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "routes",
+                                "type": "ar"
+                            },
+                            {
+                                "name": "vesselMovements",
+                                "type": "ar"
+                            },
+                            {
+                                "name": "cargoDeliveryInformationUsImportOnly"
+                            },
+                            {
+                                "name": "podETA"
+                            },
+                            {
+                                "name": "additionalInfo"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "[1]",
+                        "type": "ac",
+                        "children": [
+                            {
+                                "name": "containerType"
+                            },
+                            {
+                                "name": "containerNum",
+                                "value": "ACLU0800595",
+                                "plain": true
+                            },
+                            {
+                                "name": "stops"
+                            },
+                            {
+                                "name": "events",
+                                "type": "ar",
+                                "children": [
+                                    {
+                                        "name": "[0]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Stuffed at On 03/09/21 13:15",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime"
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name"
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "stopIndex",
+                                                "value": "0",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "vesselInfo"
+                                            },
+                                            {
+                                                "name": "voyageReference"
+                                            },
+                                            {
+                                                "name": "additionalInfo"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[1]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Loaded full on vessel ATLANTIC SUN/ASU6821 for Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222 On 03/13/21 17:12 Sail Date 03/14/21 09:54. The ETA at the port of Discharge -03/29/21 18:48",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime"
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name"
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "stopIndex",
+                                                "value": "0",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "vesselInfo"
+                                            },
+                                            {
+                                                "name": "voyageReference"
+                                            },
+                                            {
+                                                "name": "additionalInfo"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[2]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Discharged from vessel ATLANTIC SUN/ASU6821 at Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222 On 03/30/21 00:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime"
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name"
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "stopIndex",
+                                                "value": "0",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "vesselInfo"
+                                            },
+                                            {
+                                                "name": "voyageReference"
+                                            },
+                                            {
+                                                "name": "additionalInfo"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[3]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Stripped at On 03/31/21 00:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime"
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name"
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "stopIndex",
+                                                "value": "0",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "vesselInfo"
+                                            },
+                                            {
+                                                "name": "voyageReference"
+                                            },
+                                            {
+                                                "name": "additionalInfo"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "routes",
+                                "type": "ar"
+                            },
+                            {
+                                "name": "vesselMovements",
+                                "type": "ar"
+                            },
+                            {
+                                "name": "cargoDeliveryInformationUsImportOnly"
+                            },
+                            {
+                                "name": "podETA"
+                            },
+                            {
+                                "name": "additionalInfo"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "logs"
+            }
+        ]
+    },
+    "targetTreeNode": {
+        "name": "root",
+        "children": [
+            {
+                "name": "refNum",
+                "value": "var0",
+                "references": [
+                    {
+                        "jsonId": 1,
+                        "path": "root.refNum",
+                        "var": "var0",
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "refType",
+                "value": "var1",
+                "codeValue": "if(var1.toLowerCase().contains(\"container\")){\n var1 = \"container_number\"\n}else if(var1.toLowerCase().contains(\"booking\")){\n var1 = \"booking_number\"\n}else if(var1.toLowerCase().contains(\"bill\")){\n var1 = \"bill_of_lading\"\n}else{\n var1 = \"\"\n}",
+                "references": [
+                    {
+                        "jsonId": 2,
+                        "path": "root.refType",
+                        "var": "var1",
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "JTCarrierName",
+                "value": "ACL",
+                "plain": true
+            },
+            {
+                "name": "origin",
+                "value": "var2",
+                "references": [
+                    {
+                        "jsonId": 3,
+                        "path": "root.origin",
+                        "var": "var2",
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "destination",
+                "value": "var3",
+                "references": [
+                    {
+                        "jsonId": 4,
+                        "path": "root.destination",
+                        "var": "var3",
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "currentStatus",
+                "value": "var4",
+                "references": [
+                    {
+                        "jsonId": 5,
+                        "path": "root.currentStatus",
+                        "var": "var4",
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "bookingNum",
+                "value": "var5",
+                "references": [
+                    {
+                        "jsonId": 6,
+                        "path": "root.bookingNum",
+                        "var": "var5",
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "bolNum",
+                "value": "var6",
+                "references": [
+                    {
+                        "jsonId": 7,
+                        "path": "root.bolNum",
+                        "var": "var6",
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "CALC:containerCount",
+                "value": "int count = 1",
+                "type": "c"
+            },
+            {
+                "name": "container",
+                "type": "ar",
+                "children": [
+                    {
+                        "name": "[0]",
+                        "type": "ac",
+                        "loopIterator": "it_Containers",
+                        "loopReference": {
+                            "jsonId": 8,
+                            "path": "root.containers",
+                            "var": "loop1686555827987",
+                            "text": false
+                        },
+                        "references": [
+                            {
+                                "jsonId": 8,
+                                "path": "root.containers",
+                                "var": "loop1686555827987",
+                                "text": false
+                            }
+                        ],
+                        "children": [
+                            {
+                                "name": "containerType",
+                                "value": "var7",
+                                "references": [
+                                    {
+                                        "jsonId": 9,
+                                        "path": "root.containers.containerType",
+                                        "var": "var7",
+                                        "text": true,
+                                        "loopOverRef": 8
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "containerNum",
+                                "value": "var8",
+                                "codeValue": "//int count = 1\ndef temp = var8\nif(var8 != null && var8 != \"\" && var8 != \"null\" && var8 != \"NOT_ASSIGNED\"){\n    var8 = temp\n}\nelse if(var8 == null || var8 == \"\" || var8 == \"null\" || var8 == \"NOT_ASSIGNED\"){\n    var8 = \"Container \" + count.toString()\n    count++\n}",
+                                "references": [
+                                    {
+                                        "jsonId": 10,
+                                        "path": "root.containers.containerNum",
+                                        "var": "var8",
+                                        "text": true,
+                                        "loopOverRef": 8
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "CALC:stopMap&eventList",
+                                "value": "Map<String, Stop> stopMap = new HashMap<String, Stop>()\r\nLinkedList<Event> eventList = new LinkedList<Event>()\r\ndef transIndex = 1\r\n// event code map\r\ndef eventCodeMap = [:]\r\neventCodeMap[\"departed empty\"] = \"EE\"\r\neventCodeMap[\"received for vessel\"] = \"I\"\r\neventCodeMap[\"loaded full on vessel\"] = \"AE\"\r\neventCodeMap[\"discharged from vessel\"] = \"UV\"\r\neventCodeMap[\"departed from\"] = \"OA\"\r\neventCodeMap[\"received empty\"] = \"RD\"\r\n\r\ndef prevLoc = \"\"\r\ndef prevCity = \"\"\r\ndef prevCountry = \"\"\r\n\r\n// events\r\n\r\neventLoop.each{ it_e ->\r\n\r\n    def status = it_e.status.toString().trim()\r\n    status = status.replace(\"  \", \" \").trim()\r\n    def stat = \"\"\r\n    def sailDate = \"\"\r\n    def etaPod = \"\"\r\n    def location = \"\"\r\n    def eT = \"\"\r\n    def city = \"\"\r\n    def country = \"\"\r\n    def vessel = \"\"\r\n\r\n    Stop stopObj = new Stop()\r\n    Event eventObj = new Event()\r\n\r\n    if(status.toLowerCase().contains(\"departed empty\")){\r\n        stat = \"Departed empty\"\r\n        location = status.substring(status.indexOf(\"for\") + 4, status.indexOf(\"On\"))\r\n        eT = status.substring(status.indexOf(\"On\") + 3, status.size())\r\n        stopObj.stopType = \"pickup\"\r\n    }else if(status.toLowerCase().contains(\"received for vessel\")){\r\n        stat = \"Received for vessel\"\r\n        location = status.substring(status.indexOf(\"at\") + 3, status.indexOf(\"On\"))\r\n        eT = status.substring(status.indexOf(\"On\") + 3, status.size())\r\n        vessel = status.substring(status.indexOf(\"vessel\") + 7, status.indexOf(\"at\"))\r\n        stopObj.stopType = \"portOfLoading\"\r\n    }else if(status.toLowerCase().contains(\"loaded full on vessel\") && status.toLowerCase().contains(\"eta at the port of discharge\")){\r\n        stat = \"Loaded full on vessel\"\r\n        location = status.substring(status.indexOf(\"for\") + 4, status.indexOf(\"On\"))\r\n        eT = status.substring(status.indexOf(\"On\") + 3, status.indexOf(\"Sail\"))\r\n        vessel = status.substring(status.indexOf(\"vessel\") + 7, status.indexOf(\"for\"))\r\n        stopObj.stopType = \"portOfDischarge\"\r\n\r\n        //sail date\r\n        sailDate = status.substring(status.indexOf(\"Date\") + 5, status.lastIndexOf(\".\"))\r\n        // eta pod\r\n        etaPod = status.substring(status.indexOf(\"Discharge\") + 10, status.size())\r\n\r\n    }else if(status.toLowerCase().contains(\"loaded full on vessel\") && !status.toLowerCase().contains(\"eta at the port of discharge\")){\r\n        stat = \"Loaded full on vessel\"\r\n        location = status.substring(status.indexOf(\"for\") + 4, status.indexOf(\"On\"))\r\n        eT = status.substring(status.indexOf(\"On\") + 3, status.indexOf(\"Sail\"))\r\n        vessel = status.substring(status.indexOf(\"vessel\") + 7, status.indexOf(\"for\"))\r\n        stopObj.stopType = \"transshipmentPort\"\r\n        //location logic\r\n        if(location != null && location != \"\"){\r\n            location = location.trim()\r\n            if(location.contains(\",\")){\r\n                def loc = location.split(\",\")\r\n                def lCity = \"\"\r\n                def lCountry\r\n                if(loc.size() == 2){\r\n                    lCity = loc[0].trim()\r\n                    lCountry = loc[1].trim()\r\n                }else if(loc.size() == 3){\r\n                    lCity = loc[0].trim()\r\n                    lCountry = loc[2].trim()\r\n                }else if(loc.size() == 4){\r\n                    lCity = loc[0].trim()\r\n                    lCountry = loc[3].trim()\r\n                }\r\n\r\n                if(lCity.contains(\"-\")){\r\n                    city = lCity.substring(0, lCity.indexOf(\"-\")).trim()\r\n                }else if(lCity.contains(\"(\")){\r\n                    city = lCity.substring(0, lCity.indexOf(\"(\")).trim()\r\n                }else{\r\n                    city = lCity\r\n                }\r\n            }\r\n        }\r\n\r\n        if(stopMap.containsKey(city)){\r\n            stopObj.stopIndex = stopMap.get(city).stopIndex\r\n        }else if(!stopMap.containsKey(city)){\r\n            stopObj.stopIndex = transIndex\r\n            transIndex++\r\n        }\r\n        \r\n        //sail date\r\n        sailDate = status.substring(status.indexOf(\"Date\") + 5, status.size())\r\n        \r\n    }else if(status.toLowerCase().contains(\"discharged from vessel\")){\r\n        stat = \"Discharged from vessel\"\r\n        location = status.substring(status.indexOf(\"at\") + 3, status.indexOf(\"On\"))\r\n        eT = status.substring(status.indexOf(\"On\") + 3, status.size())\r\n        vessel = status.substring(status.indexOf(\"vessel\") + 7, status.indexOf(\"at\"))\r\n    }else if(status.toLowerCase().contains(\"departed from\")){\r\n        stat = \"Departed from\"\r\n        if(status.toLowerCase().contains(\"vessel\")){\r\n            location = status.substring(status.indexOf(\"from\") + 5, status.lastIndexOf(\"from\"))\r\n            vessel = status.substring(status.indexOf(\"vessel\") + 7, status.indexOf(\"On\"))\r\n        }else{\r\n            location = status.substring(status.indexOf(\"from\") + 5, status.indexOf(\"On\"))\r\n            vessel = \"\"\r\n        }\r\n        eT = status.substring(status.indexOf(\"On\") + 3, status.size())\r\n    }else if(status.toLowerCase().contains(\"received empty\")){\r\n        stat = \"Received empty\"\r\n        location = status.substring(status.indexOf(\"at\") + 3, status.indexOf(\"On\"))\r\n        eT = status.substring(status.indexOf(\"On\") + 3, status.size())\r\n        stopObj.stopType = \"delivery\"\r\n    }else if(status.toLowerCase().contains(\"received at\")){\r\n        stat = \"Received at\"\r\n        location = status.substring(status.indexOf(\"at\") + 3, status.indexOf(\"On\"))\r\n        eT = status.substring(status.indexOf(\"On\") + 3, status.size())\r\n    }else if(status.toLowerCase().contains(\"departed for\")){\r\n        stat = \"Departed for\"\r\n        if(status.toLowerCase().contains(\"vessel\")){\r\n            location = status.substring(status.indexOf(\"for\") + 4, status.lastIndexOf(\"for\"))\r\n            eT = status.substring(status.indexOf(\"On\") + 3, status.size())\r\n            vessel = status.substring(status.indexOf(\"vessel\") + 7, status.indexOf(\"On\"))\r\n        }else{\r\n            location = status.substring(status.indexOf(\"for\") + 4, status.indexOf(\"On\"))\r\n            eT = status.substring(status.indexOf(\"On\") + 3, status.size())\r\n        }\r\n    }else if(status.toLowerCase().contains(\"stuffed at\")){\r\n        stat = \"Stuffed at\"\r\n        location = status.substring(status.indexOf(\"at\") + 3, status.indexOf(\"On\"))\r\n        eT = status.substring(status.indexOf(\"On\") + 3, status.size())\r\n    }else if(status.toLowerCase().contains(\"stripped at\")){\r\n        stat = \"Stripped at\"\r\n        location = status.substring(status.indexOf(\"at\") + 3, status.indexOf(\"On\"))\r\n        eT = status.substring(status.indexOf(\"On\") + 3, status.size())\r\n    }\r\n\r\n    //location logic\r\n    if(location != null && location != \"\"){\r\n        location = location.trim()\r\n        if(location.contains(\",\")){\r\n            def loc = location.split(\",\")\r\n            def lCity = \"\"\r\n            def lCountry\r\n            if(loc.size() == 2){\r\n                lCity = loc[0].trim()\r\n                lCountry = loc[1].trim()\r\n            }else if(loc.size() == 3){\r\n                lCity = loc[0].trim()\r\n                lCountry = loc[2].trim()\r\n            }else if(loc.size() == 4){\r\n                lCity = loc[0].trim()\r\n                lCountry = loc[3].trim()\r\n            }\r\n\r\n            if(lCity.contains(\"-\")){\r\n                city = lCity.substring(0, lCity.indexOf(\"-\")).trim()\r\n            }else if(lCity.contains(\"(\")){\r\n                city = lCity.substring(0, lCity.indexOf(\"(\")).trim()\r\n            }else{\r\n                city = lCity\r\n            }\r\n\r\n            if(lCountry.contains(\" \")){\r\n                country = lCountry.substring(0, lCountry.lastIndexOf(\" \")).trim()\r\n            }else{\r\n                country = lCountry\r\n            }\r\n        }\r\n    }\r\n\r\n    // stopObj location assign\r\n    stopObj.locName = location\r\n    stopObj.locCity = city\r\n    stopObj.locCountry = country\r\n\r\n    if(stopObj.stopType != null && stopObj.stopType != \"\"){\r\n        if(stopObj.stopType.contains(\"transshipment\")){\r\n            stopMap.put(stopObj.locCity, stopObj)\r\n        }else{\r\n            stopMap.put(stopObj.stopType, stopObj)\r\n        }\r\n    }\r\n\r\n    // eventObj location assign\r\n    eventObj.eventLocName = location\r\n    eventObj.eventLocCity = city\r\n    eventObj.eventLocCountry = country\r\n\r\n    //time logic\r\n    def eTime = \"\"\r\n    if(eT != null && eT != \"\"){\r\n        eT = eT.trim()\r\n        eT = eT.replace(\"-\",\"\").replace(\",\",\"\").trim()\r\n        SimpleDateFormat dateFormat = new SimpleDateFormat(\"yyyy-MM-dd HH:mm:ss\");\r\n        def inputDate = new SimpleDateFormat(\"MM/dd/yy HH:mm\")\r\n        def plannedShipDate = inputDate.parse(eT)\r\n        eTime = dateFormat.format(plannedShipDate);\r\n    }\r\n\r\n    if(eTime != \"\"){\r\n        eventObj.eventTime = eTime\r\n    }\r\n\r\n    //vessel logic\r\n    def vesselN = \"\"\r\n    def voyageN = \"\"\r\n    if(vessel != null && vessel != \"\"){\r\n        vessel = vessel.trim()\r\n        if(vessel.contains(\"/\")){\r\n            vesselN = vessel.substring(0, vessel.indexOf(\"/\"))\r\n            voyageN = vessel.substring(vessel.indexOf(\"/\") + 1, vessel.size())\r\n        }\r\n    }\r\n\r\n    eventObj.status = stat\r\n    eventObj.vesselName = vesselN\r\n    eventObj.voyageNo = voyageN\r\n\r\n    eventObj.eventCode = eventCodeMap[stat.toLowerCase()]\r\n    eventObj.eventQualifier = \"A\"\r\n    \r\n    if(etaPod != \"\"){\r\n        etaPod = etaPod.trim()\r\n        etaPod = etaPod.replace(\"-\",\"\").trim()\r\n        Event newEventObj = eventObj.clone()\r\n        newEventObj.status = \"ETA at the port of Discharge\"\r\n        newEventObj.eventCode = \"AG\"\r\n        SimpleDateFormat dateFormat = new SimpleDateFormat(\"yyyy-MM-dd HH:mm:ss\");\r\n        def inputDate = new SimpleDateFormat(\"MM/dd/yy HH:mm\")\r\n        def plannedShipDate = inputDate.parse(etaPod)\r\n        newEventObj.eventTime = dateFormat.format(plannedShipDate);\r\n        newEventObj.eventQualifier = \"E\"\r\n        if(stopMap.containsKey(\"portOfDischarge\") && eventObj.eventLocCity == stopMap.get(\"portOfDischarge\").locCity){\r\n            newEventObj.eventStopType = \"portOfDischarge\"\r\n        }else if(stopMap.containsKey(eventObj.eventLocCity)){\r\n            newEventObj.eventStopType = \"transshipmentPort\"\r\n        }else if(stopMap.containsKey(\"delivery\") && eventObj.eventLocCity == stopMap.get(\"delivery\").locCity){\r\n            newEventObj.eventStopType = \"delivery\"\r\n        }else if(stopMap.containsKey(\"portOfLoading\") && eventObj.eventLocCity == stopMap.get(\"portOfLoading\").locCity){\r\n            newEventObj.eventStopType = \"portOfLoading\"\r\n        }\r\n\r\n        eventList.add(newEventObj)\r\n    }\r\n    \r\n    if(eventObj.eventCode == \"I\"){\r\n        prevLoc = eventObj.eventLocName\r\n        prevCity = eventObj.eventLocCity\r\n        prevCountry = eventObj.eventLocCountry\r\n    }else if(eventObj.eventCode == \"AE\"){\r\n        eventObj.eventLocName = prevLoc\r\n        eventObj.eventLocCity = prevCity\r\n        eventObj.eventLocCountry = prevCountry\r\n\r\n        //\r\n        prevLoc = location\r\n        prevCity = city\r\n        prevCountry = country\r\n    }\r\n    \r\n    //println prevLoc + \"---\" + prevCity + \"---\" + prevCountry\r\n\r\n    if(sailDate != \"\"){\r\n        sailDate = sailDate.trim()\r\n        sailDate = sailDate.replace(\"-\",\"\").replace(\".\",\"\").trim()\r\n        Event newEventObj = eventObj.clone()\r\n        newEventObj.status = \"Sail Date\"\r\n        SimpleDateFormat dateFormat = new SimpleDateFormat(\"yyyy-MM-dd HH:mm:ss\");\r\n        def inputDate = new SimpleDateFormat(\"MM/dd/yy HH:mm\")\r\n        def plannedShipDate = inputDate.parse(sailDate)\r\n        newEventObj.eventTime = dateFormat.format(plannedShipDate);\r\n\r\n        // Parse the given date string\r\n        def givenDate = dateFormat.parse(newEventObj.eventTime)\r\n\r\n        // Get the current time\r\n        def currentTime = new Date()\r\n\r\n        // Compare the given date with the current time\r\n        def comparisonResult = givenDate.compareTo(currentTime)\r\n\r\n        if (comparisonResult < 0) {\r\n            //println(\"The given date is smaller than the current time.\")\r\n            newEventObj.eventCode = \"VD\"\r\n        } else if (comparisonResult > 0) {\r\n            //println(\"The given date is greater than the current time.\")\r\n            newEventObj.eventCode = \"C1\"\r\n            newEventObj.eventQualifier = \"E\"\r\n            if(stopMap.containsKey(\"portOfLoading\") && eventObj.eventLocCity == stopMap.get(\"portOfLoading\").locCity){\r\n                newEventObj.eventStopType = \"portOfLoading\"\r\n            }else if(stopMap.containsKey(eventObj.eventLocCity)){\r\n                newEventObj.eventStopType = \"transshipmentPort\"\r\n            }else if(stopMap.containsKey(\"pickup\") && eventObj.eventLocCity == stopMap.get(\"pickup\").locCity){\r\n                newEventObj.eventStopType = \"pickup\"\r\n            }else if(stopMap.containsKey(\"portOfDischarge\") && eventObj.eventLocCity == stopMap.get(\"portOfDischarge\").locCity){\r\n                newEventObj.eventStopType = \"portOfDischarge\"\r\n            }\r\n        } else {\r\n            //println(\"The given date is equal to the current time.\")\r\n            newEventObj.eventCode = \"C1\"\r\n            newEventObj.eventQualifier = \"E\"\r\n            if(stopMap.containsKey(\"portOfLoading\") && eventObj.eventLocCity == stopMap.get(\"portOfLoading\").locCity){\r\n                newEventObj.eventStopType = \"portOfLoading\"\r\n            }else if(stopMap.containsKey(eventObj.eventLocCity)){\r\n                newEventObj.eventStopType = \"transshipmentPort\"\r\n            }else if(stopMap.containsKey(\"pickup\") && eventObj.eventLocCity == stopMap.get(\"pickup\").locCity){\r\n                newEventObj.eventStopType = \"pickup\"\r\n            }else if(stopMap.containsKey(\"portOfDischarge\") && eventObj.eventLocCity == stopMap.get(\"portOfDischarge\").locCity){\r\n                newEventObj.eventStopType = \"portOfDischarge\"\r\n            }\r\n        }\r\n\r\n        eventList.add(newEventObj)\r\n    }\r\n    \r\n    if(stat.toLowerCase().contains(\"departed for\")){\r\n        eventObj.eventCode = \"OA\"\r\n        eventObj.eventLocName = stopMap.containsKey(\"portOfDischarge\") ? stopMap.get(\"portOfDischarge\").locName : location\r\n        eventObj.eventLocCity = stopMap.containsKey(\"portOfDischarge\") ? stopMap.get(\"portOfDischarge\").locCity : city\r\n        eventObj.eventLocCountry = stopMap.containsKey(\"portOfDischarge\") ? stopMap.get(\"portOfDischarge\").locCountry : country\r\n    }\r\n\r\n    //C1 eventStopType\r\n    /*if(eventObj.eventCode == \"C1\"){\r\n        eventObj.eventQualifier = \"E\"\r\n        if(stopMap.containsKey(\"portOfLoading\") && eventObj.eventLocCity == stopMap.get(\"portOfLoading\").locCity){\r\n            eventObj.eventStopType = \"portOfLoading\"\r\n        }else if(stopMap.containsKey(eventObj.eventLocCity)){\r\n            eventObj.eventStopType = \"transshipmentPort\"\r\n        }else if(stopMap.containsKey(\"pickup\") && eventObj.eventLocCity == stopMap.get(\"pickup\").locCity){\r\n            eventObj.eventStopType = \"pickup\"\r\n        }else if(stopMap.containsKey(\"portOfDischarge\") && eventObj.eventLocCity == stopMap.get(\"portOfDischarge\").locCity){\r\n            eventObj.eventStopType = \"portOfDischarge\"\r\n        }\r\n    }\r\n    //AG eventStopType\r\n    if(eventObj.eventCode == \"AG\"){\r\n        eventObj.eventQualifier = \"E\"\r\n        if(stopMap.containsKey(\"portOfDischarge\") && eventObj.eventLocCity == stopMap.get(\"portOfDischarge\").locCity){\r\n            eventObj.eventStopType = \"portOfDischarge\"\r\n        }else if(stopMap.containsKey(eventObj.eventLocCity)){\r\n            eventObj.eventStopType = \"transshipmentPort\"\r\n        }else if(stopMap.containsKey(\"delivery\") && eventObj.eventLocCity == stopMap.get(\"delivery\").locCity){\r\n            eventObj.eventStopType = \"delivery\"\r\n        }else if(stopMap.containsKey(\"portOfLoading\") && eventObj.eventLocCity == stopMap.get(\"portOfLoading\").locCity){\r\n            eventObj.eventStopType = \"portOfLoading\"\r\n        }\r\n    }*/\r\n\r\n    if(eventObj.eventLocCity != null && eventObj.eventLocCity != \"\"){\r\n        eventList.add(eventObj)\r\n    }\r\n\r\n}\r\n\r\n\r\n\r\n\r\n",
+                                "type": "c",
+                                "references": [
+                                    {
+                                        "jsonId": 11,
+                                        "path": "root.containers.events",
+                                        "var": "eventLoop",
+                                        "text": false,
+                                        "loopOverRef": 8
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "stops",
+                                "type": "ar",
+                                "children": [
+                                    {
+                                        "name": "[0]",
+                                        "codeValue": "String stopType = it.value.stopType\nString locName = it.value.locName\nString locCity = it.value.locCity\nString locCountry = it.value.locCountry\nint stopIndex = it.value.stopIndex",
+                                        "type": "ac",
+                                        "looper": {
+                                            "loopStatement": "stopMap.each"
+                                        },
+                                        "children": [
+                                            {
+                                                "name": "stopType",
+                                                "value": "stopType"
+                                            },
+                                            {
+                                                "name": "stopIndex",
+                                                "value": "stopIndex"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "locName"
+                                                    },
+                                                    {
+                                                        "name": "city",
+                                                        "value": "locCity"
+                                                    },
+                                                    {
+                                                        "name": "state",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "country",
+                                                        "value": "locCountry"
+                                                    },
+                                                    {
+                                                        "name": "latitude",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "longitude",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "unlocode",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "terminal",
+                                                        "plain": true
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "events",
+                                "type": "ar",
+                                "children": [
+                                    {
+                                        "name": "[0]",
+                                        "codeValue": "String status = it.status\nString eventCode = it.eventCode\nString eventTime = it.eventTime\nString eventQualifier = it.eventQualifier\nString eventLocName = it.eventLocName\nString eventLocCity = it.eventLocCity\nString eventLocCountry = it.eventLocCountry\nString vesselName = it.vesselName\nString voyageNo = it.voyageNo\nString stopType = it.eventStopType",
+                                        "type": "ac",
+                                        "looper": {
+                                            "loopStatement": "eventList.each"
+                                        },
+                                        "children": [
+                                            {
+                                                "name": "mode",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "status"
+                                            },
+                                            {
+                                                "name": "eventCode",
+                                                "value": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "eventTime"
+                                            },
+                                            {
+                                                "name": "eventQualifier",
+                                                "value": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "stopType",
+                                                "value": "stopType"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "eventLocName"
+                                                    },
+                                                    {
+                                                        "name": "city",
+                                                        "value": "eventLocCity"
+                                                    },
+                                                    {
+                                                        "name": "state",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "country",
+                                                        "value": "eventLocCountry"
+                                                    },
+                                                    {
+                                                        "name": "latitude",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "longitude",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "unlocode",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "terminal",
+                                                        "plain": true
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "stopIndex",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "vesselInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "vesselName"
+                                                    },
+                                                    {
+                                                        "name": "imo",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "mmsi",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "additionalInfo",
+                                                        "plain": true
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "voyageReference",
+                                                "value": "voyageNo"
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "plain": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "mapperPreferences": {
+        "debugComment": false,
+        "overrideTargetValue": true,
+        "autoMap": false,
+        "autoMapOneToMany": false,
+        "autoMapIncludeSubNodes": false
+    },
+    "referenceVarCount": 10
+}

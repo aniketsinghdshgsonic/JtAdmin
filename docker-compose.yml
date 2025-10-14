@@ -1,0 +1,226 @@
+
+# Fixed docker-compose.yml with proper resource management
+services:
+
+  # Milvus Vector Database Services
+  etcd:
+    container_name: llama-etcd
+    image: quay.io/coreos/etcd:v3.5.5
+    restart: unless-stopped
+    environment:
+      - ETCD_AUTO_COMPACTION_MODE=revision
+      - ETCD_AUTO_COMPACTION_RETENTION=1000
+      - ETCD_QUOTA_BACKEND_BYTES=4294967296
+      - ETCD_SNAPSHOT_COUNT=50000
+    volumes:
+      - etcd_data:/etcd
+    command: etcd -advertise-client-urls=http://127.0.0.1:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
+    networks:
+      - llama-network
+    healthcheck:
+      test: ["CMD", "etcdctl", "endpoint", "health"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  minio:
+    container_name: llama-minio
+    image: minio/minio:RELEASE.2023-03-20T20-16-18Z
+    restart: unless-stopped
+    environment:
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    ports:
+      - "9001:9001"  # MinIO Console
+      - "9000:9000"  # MinIO API
+    volumes:
+      - minio_data:/minio_data
+    command: minio server /minio_data --console-address ":9001"
+    networks:
+      - llama-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  milvus:
+    container_name: llama-milvus
+    image: milvusdb/milvus:v2.3.5
+    restart: unless-stopped
+    command: ["milvus", "run", "standalone"]
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      ETCD_ENDPOINTS: etcd:2379
+      MINIO_ADDRESS: minio:9000
+    volumes:
+      - milvus_data:/var/lib/milvus
+    ports:
+      - "19530:19530"  # Milvus gRPC
+      - "9091:9091"    # Milvus HTTP
+    depends_on:
+      - etcd
+      - minio
+    networks:
+      - llama-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 30s
+      start_period: 90s
+      timeout: 20s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Flask Backend Container - FIXED RESOURCE MANAGEMENT
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+    container_name: llama-flask-backend
+    restart: unless-stopped
+    stop_grace_period: 30s  # Give container time to cleanup
+    stop_signal: SIGTERM 
+    runtime: nvidia
+    depends_on:
+      milvus:
+        condition: service_healthy
+    
+    # CRITICAL: Proper resource limits for 4-CPU system
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu, compute, utility, graphics, video, display]
+    
+    # GPU configuration
+    # gpus: all
+
+    
+    volumes:
+      - ./app:/app/app:rw
+      - ./ai-model:/app/ai-model:rw
+      - ./ai-model/codellama-13b.Q4_K_M.gguf:/app/ai-model/codellama-13b.Q4_K_M.gguf:ro
+      - ./ai-model/CodeLlama-13b-hf:/app/ai-model/CodeLlama-13b-hf:rw
+      - app_logs:/app/logs
+      - model_cache:/app/.cache
+      - temp_data:/app/temp:rw
+
+    environment:
+      - PYTHONPATH=/app
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - CUDA_VISIBLE_DEVICES=0
+      
+      # CRITICAL: Memory management settings
+      - PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:256,expandable_segments:True
+      - CUDA_LAUNCH_BLOCKING=1
+      - TORCH_CUDNN_V8_API_ENABLED=1
+      - CUDA_DEVICE_ORDER=PCI_BUS_ID
+
+      - RESTART_AFTER_TRAINING=true     # Enable container restart after training
+      - RESTART_TRAINING_THRESHOLD=1 
+      - DOCKER_RESTART_DEBUG=true  # NEW: Enable restart debugging
+      - STARTUP_DEBUG=true  
+      
+      # Model and training settings
+      - MODEL_PATH=/app/ai-model/codellama-13b.Q4_K_M.gguf
+      - USE_CUDA=true
+      - LOG_LEVEL=DEBUG
+      - MAX_CONCURRENT_TRAINING=1  # Only one training at a time
+      
+      # Database settings
+      - DB_TYPE=mysql
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=llama_users
+      - DB_USER=llama_user
+      - DB_PASSWORD=llama_password123
+      
+      # Milvus connection settings
+      - MILVUS_HOST=milvus
+      - MILVUS_PORT=19530
+      - MINIO_HOST=minio
+      - MINIO_PORT=9000
+      - MINIO_ACCESS_KEY=minioadmin
+      - MINIO_SECRET_KEY=minioadmin
+      
+      # Flask settings
+      - PORT=8000
+      - HOST=0.0.0.0
+      - FLASK_ENV=production
+      - MODEL_MAX_TOKENS=256
+      - MODEL_TEMPERATURE=0.7
+      - MODEL_CONTEXT_SIZE=2048
+      
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    networks:
+      - llama-network
+    
+    # CRITICAL: Enhanced logging and health checks
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "3"
+
+    healthcheck:
+      test: ["CMD", "python3", "-c", "print('Container running')"]
+      interval: 60s
+      timeout: 30s
+      retries: 10
+      start_period: 300s  # Give it 5 minutes to start
+    
+
+  # FIXED: Enhanced NGINX with proper timeout handling
+  nginx:
+    image: nginx:alpine
+    container_name: llama-nginx
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    networks:
+      - llama-network
+    
+# Resource limits for nginx too
+volumes:
+  app_logs:
+  model_cache:
+  temp_data:
+  training_examples:
+  # Milvus volumes
+  etcd_data:
+  minio_data:
+  milvus_data:
+
+networks:
+  llama-network:
+    driver: bridge

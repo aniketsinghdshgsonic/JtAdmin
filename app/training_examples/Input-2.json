@@ -1,0 +1,126 @@
+{
+  "refNum": "SA00624796",
+  "refType": "booking_number",
+  "JTCarrierName": "ACL",
+  "origin": "",
+  "destination": "",
+  "currentStatus": "",
+  "bookingNum": "SA00624796",
+  "bolNum": "",
+  "container": [
+    {
+      "containerType": "",
+      "containerNum": "ATLA0700080",
+      "stops": [{
+        "stopType": "portOfDischarge",
+        "stopIndex": 0,
+        "location": {
+          "name": "Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222",
+          "city": "Baltimore",
+          "country": "U.S.A."
+        }
+      }],
+      "events": [
+        {
+          "status": "ETA at the port of Discharge",
+          "eventCode": "AG",
+          "eventTime": "2021-03-29 18:48:00",
+          "eventQualifier": "E",
+          "stopType": "portOfDischarge",
+          "location": {
+            "name": "Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222",
+            "city": "Baltimore",
+            "country": "U.S.A."
+          },
+          "vesselInfo": {"name": "ATLANTIC SUN"},
+          "voyageReference": "ASU6821"
+        },
+        {
+          "status": "Sail Date",
+          "eventCode": "VD",
+          "eventTime": "2021-03-14 09:54:00",
+          "eventQualifier": "A",
+          "stopType": "",
+          "location": {
+            "name": "",
+            "city": "",
+            "country": ""
+          },
+          "vesselInfo": {"name": "ATLANTIC SUN"},
+          "voyageReference": "ASU6821"
+        },
+        {
+          "status": "Discharged from vessel",
+          "eventCode": "UV",
+          "eventTime": "2021-03-30 00:00:00",
+          "eventQualifier": "A",
+          "stopType": "",
+          "location": {
+            "name": "Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222",
+            "city": "Baltimore",
+            "country": "U.S.A."
+          },
+          "vesselInfo": {"name": "ATLANTIC SUN"},
+          "voyageReference": "ASU6821"
+        }
+      ]
+    },
+    {
+      "containerType": "",
+      "containerNum": "ACLU0800595",
+      "stops": [{
+        "stopType": "portOfDischarge",
+        "stopIndex": 0,
+        "location": {
+          "name": "Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222",
+          "city": "Baltimore",
+          "country": "U.S.A."
+        }
+      }],
+      "events": [
+        {
+          "status": "ETA at the port of Discharge",
+          "eventCode": "AG",
+          "eventTime": "2021-03-29 18:48:00",
+          "eventQualifier": "E",
+          "stopType": "portOfDischarge",
+          "location": {
+            "name": "Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222",
+            "city": "Baltimore",
+            "country": "U.S.A."
+          },
+          "vesselInfo": {"name": "ATLANTIC SUN"},
+          "voyageReference": "ASU6821"
+        },
+        {
+          "status": "Sail Date",
+          "eventCode": "VD",
+          "eventTime": "2021-03-14 09:54:00",
+          "eventQualifier": "A",
+          "stopType": "",
+          "location": {
+            "name": "",
+            "city": "",
+            "country": ""
+          },
+          "vesselInfo": {"name": "ATLANTIC SUN"},
+          "voyageReference": "ASU6821"
+        },
+        {
+          "status": "Discharged from vessel",
+          "eventCode": "UV",
+          "eventTime": "2021-03-30 00:00:00",
+          "eventQualifier": "A",
+          "stopType": "",
+          "location": {
+            "name": "Baltimore-Mit/Dundalk,Maryland,U.S.A. 21222",
+            "city": "Baltimore",
+            "country": "U.S.A."
+          },
+          "vesselInfo": {"name": "ATLANTIC SUN"},
+          "voyageReference": "ASU6821"
+        }
+      ]
+    }
+  ]
+}

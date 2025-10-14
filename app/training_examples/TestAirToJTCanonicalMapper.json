@@ -1,0 +1,2688 @@
+{
+    "name": "Fiji-AirwaysAirToJTCanonicalMapper_TEST",
+    "localContext": {
+        "globalVariables": [],
+        "functions": [],
+        "lookupTables": [],
+        "classes": [
+            {
+                "name": "Stop",
+                "value": "class Stop {\n    String origin = \"\"\n    String destination = \"\"\n    String totalPieces = \"\"\n    String totalWeightValue = \"\"\n    String totalWeightUnit = \"\"\n    String totalVolumeValue = \"\"\n    String totalVolumeUnit = \"\"\n    String vehicleNumber = \"\"\n    String transportMode = \"\"\n    String scheduledDepartureTime = \"\"\n    String actualDepartureTime = \"\"\n    String scheduledArrivalTime = \"\"\n    String actualArrivalTime = \"\"\n    String estimatedDepartureTime = \"\"\n    String estimatedArrivalTime = \"\"\n    String timeZone = \"\"\n    String bookingStatus = \"\"\n    String segmentIndex = \"\"\n    String bookingStatusDescription = \"\"\n\n}",
+                "shortValue": "class Stop {..."
+            },
+            {
+                "name": "Event",
+                "value": "class Event {\n    String eventType = \"\"\n    String carrierEventCode = \"\"\n    String eventCode = \"\"\n    String description = \"\"\n    String station = \"\"\n    String totalPieces = \"\"\n    String totalWeightValue = \"\"\n    String totalWeightUnit = \"\"\n    String totalVolumeValue = \"\"\n    String totalVolumeUnit = \"\"\n    String timeZone = \"\"\n    String eventTime = \"\"\n    String sequence = \"\"\n    String estimatedDepartureTime = \"\"\n    String estimatedArrivalTime = \"\"\n    String actualDepartureTime = \"\"\n    String scheduledArrivalTime = \"\"\n    String scheduledDepartureTime = \"\"\n    String actualArrivalTime = \"\"\n    String vehicleNumber = \"\"\n    String transportMode = \"\"\n    String departureLocation = \"\"\n    String arrivalLocation = \"\"\n    String transferManifestNumber = \"\"\n    String transferredFromName = \"\"\n    String receivedFromName = \"\"\n    String deliveryToName = \"\"\n    String notificationToName = \"\"\n    String receivingCarrier = \"\"\n    String transferringCarrier = \"\"\n    String discrepencyCode = \"\"\n    LinkedList<Uld> uldList = new LinkedList<Uld>()\n}",
+                "shortValue": "class Event {..."
+            },
+            {
+                "name": "Uld",
+                "value": "class Uld {\n    String type = \"\"\n    String number = \"\"\n    String serialNumber = \"\"\n    String ownerCode = \"\"\n    String quantity = \"\"\n    String weightOfULDContentsValue = \"\"\n    String weightOfULDContentsUnit = \"\"\n}",
+                "shortValue": "class Uld {..."
+            },
+            {
+                "name": "MapperUtility",
+                "value": "class MapperUtility {\n    public static boolean isNullOrEmpty(def item){\n        if(item == \"\" || item == null || item == \"null\")\n        {\n        return true\n        }\n        return false\n    }\n    public static def convertToDouble(def item)\n    {   \n        def output\n            if(isNullOrEmpty(item))\n            {\n            output= null\n            }\n            else\n            {\n            output = item.toDouble()\n            }\n        return output\n    }\n}",
+                "shortValue": "class MapperUtility {..."
+            }
+        ]
+    },
+    "testInput": "{\n  \"refNum\": \"260-41367465\",\n  \"refType\": \"AWB\",\n  \"origin\": \"SYD\",\n  \"destination\": \"DFW\",\n  \"additionalInfo\": {\n    \"totalPieces\": 1,\n    \"pieces\": null,\n    \"weight\": {\n      \"value\": \"72\",\n      \"unit\": \"KG\"\n    },\n    \"totalWeight\": null,\n    \"specialHandling\": null,\n    \"volume\": null,\n    \"totalVolume\": null,\n    \"products\": null,\n    \"commodity\": null,\n    \"offsetData\": null,\n    \"currentStatus\": null,\n    \"departureArrivalInfo\": null\n  },\n  \"shipments\": [\n    {\n      \"events\": [\n        {\n          \"mode\": null,\n          \"status\": \"Booked\",\n          \"eventCode\": \"KK\",\n          \"eventTime\": \"2025-05-27 13:59:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"SYD\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"SYD\",\n            \"destination\": \"NAN\",\n            \"description\": \"1 piece 100.0 Kg booked on FJ910 02JUN25 with status – KK\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-06-02 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"FJ910\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        },\n        {\n          \"mode\": null,\n          \"status\": \"Booked\",\n          \"eventCode\": \"KK\",\n          \"eventTime\": \"2025-07-01 07:38:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"SYD\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"SYD\",\n            \"destination\": \"NAN\",\n            \"description\": \"1 piece 72.0 Kg booked on FJ910 02JUL25 with status – KK\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-02 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"FJ910\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        },\n        {\n          \"mode\": null,\n          \"status\": \"Received from shipper\",\n          \"eventCode\": null,\n          \"eventTime\": \"2025-07-01 17:33:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"SYD\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"SYD\",\n            \"destination\": \"NAN\",\n            \"description\": \"1 piece 72.0 Kg received from shipper\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-01 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        },\n        {\n          \"mode\": null,\n          \"status\": \"Manifested on flight\",\n          \"eventCode\": null,\n          \"eventTime\": \"2025-07-02 10:52:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"SYD\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"SYD\",\n            \"destination\": \"NAN\",\n            \"description\": \"1 piece 72.0 Kg manifested on FJ910 02JUL25\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-02 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"FJ910\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        },\n        {\n          \"mode\": null,\n          \"status\": \"Departed on flight\",\n          \"eventCode\": null,\n          \"eventTime\": \"2025-07-02 13:15:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"SYD\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"SYD\",\n            \"destination\": \"NAN\",\n            \"description\": \"1 piece 72.0 Kg departed on FJ910 02JUL25\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-02 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"FJ910\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        },\n        {\n          \"mode\": null,\n          \"status\": \"Departed\",\n          \"eventCode\": null,\n          \"eventTime\": \"2025-07-02 13:35:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"SYD\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"SYD\",\n            \"destination\": \"NAN\",\n            \"description\": \"1 piece 72.0 Kg departed on FJ910 02JUL25\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-02 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"FJ910\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        },\n        {\n          \"mode\": null,\n          \"status\": \"Departed\",\n          \"eventCode\": null,\n          \"eventTime\": \"2025-07-02 13:35:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"SYD\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"SYD\",\n            \"destination\": \"NAN\",\n            \"description\": \"1 piece 72.0 Kg departed on FJ910 02JUL25\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-02 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"FJ910\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        },\n        {\n          \"mode\": null,\n          \"status\": \"Departed\",\n          \"eventCode\": null,\n          \"eventTime\": \"2025-07-03 16:55:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"SYD\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"SYD\",\n            \"destination\": \"NAN\",\n            \"description\": \"1 piece 72.0 Kg departed on FJ910 02JUL25\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-02 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"FJ910\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        },\n        {\n          \"mode\": null,\n          \"status\": \"Booked\",\n          \"eventCode\": \"KK\",\n          \"eventTime\": \"2025-05-27 13:59:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"NAN\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"NAN\",\n            \"destination\": \"DFW\",\n            \"description\": \"1 piece 100.0 Kg booked on FJ890 03JUN25 with status – KK\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-06-03 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"FJ890\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        },\n        {\n          \"mode\": null,\n          \"status\": \"Booked\",\n          \"eventCode\": \"KK\",\n          \"eventTime\": \"2025-07-01 07:38:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"NAN\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"NAN\",\n            \"destination\": \"DFW\",\n            \"description\": \"1 piece 72.0 Kg booked on FJ890 03JUL25 with status – KK\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-03 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"FJ890\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        },\n        {\n          \"mode\": null,\n          \"status\": \"Booked\",\n          \"eventCode\": \"KK\",\n          \"eventTime\": \"2025-07-03 16:55:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"NAN\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"NAN\",\n            \"destination\": \"DFW\",\n            \"description\": \"1 piece 72.0 Kg booked on FJ890 03JUL25 with status – KK\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-03 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"FJ890\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        },\n        {\n          \"mode\": null,\n          \"status\": \"Departed on flight\",\n          \"eventCode\": null,\n          \"eventTime\": \"2025-07-03 21:56:00\",\n          \"eventQualifier\": null,\n          \"location\": {\n            \"name\": \"NAN\",\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"unloCode\": null,\n            \"terminal\": null\n          },\n          \"additionalInfo\": {\n            \"totalPieces\": \"1\",\n            \"weight\": null,\n            \"totalWeight\": {\n              \"value\": 72,\n              \"unit\": \"KG\"\n            },\n            \"specialHandling\": null,\n            \"origin\": \"NAN\",\n            \"destination\": \"DFW\",\n            \"description\": \"1 piece 72.0 Kg departed on FJ890 03JUL25\",\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-03 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": \"FJ890\",\n            \"volume\": null,\n            \"totalVolume\": null\n          }\n        }\n      ],\n      \"routes\": [\n        {\n          \"origin\": \"SYD\",\n          \"destination\": \"NAN\",\n          \"routeIndex\": 0,\n          \"date\": null,\n          \"flightNum\": \"FJ910\",\n          \"estimatedDepartureDate\": null,\n          \"estimatedArrivalDate\": null,\n          \"departureDate\": null,\n          \"departureDateExpected\": null,\n          \"arrivalDate\": null,\n          \"arrivalDateExpected\": null,\n          \"totalPieces\": 1,\n          \"pieces\": null,\n          \"weight\": {\n            \"value\": \"72\",\n            \"unit\": \"KG\"\n          },\n          \"totalWeight\": null,\n          \"volume\": null,\n          \"totalVolume\": null,\n          \"additionalInfo\": {\n            \"totalPieces\": null,\n            \"weight\": null,\n            \"totalWeight\": null,\n            \"specialHandling\": null,\n            \"origin\": null,\n            \"destination\": null,\n            \"description\": null,\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-02 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": null,\n            \"volume\": null,\n            \"totalVolume\": null\n          },\n          \"transportMode\": null\n        },\n        {\n          \"origin\": \"NAN\",\n          \"destination\": \"DFW\",\n          \"routeIndex\": 0,\n          \"date\": null,\n          \"flightNum\": \"FJ890\",\n          \"estimatedDepartureDate\": null,\n          \"estimatedArrivalDate\": null,\n          \"departureDate\": null,\n          \"departureDateExpected\": null,\n          \"arrivalDate\": null,\n          \"arrivalDateExpected\": null,\n          \"totalPieces\": 1,\n          \"pieces\": null,\n          \"weight\": {\n            \"value\": \"72\",\n            \"unit\": \"KG\"\n          },\n          \"totalWeight\": null,\n          \"volume\": null,\n          \"totalVolume\": null,\n          \"additionalInfo\": {\n            \"totalPieces\": null,\n            \"weight\": null,\n            \"totalWeight\": null,\n            \"specialHandling\": null,\n            \"origin\": null,\n            \"destination\": null,\n            \"description\": null,\n            \"departureDate\": null,\n            \"arrivalDate\": null,\n            \"arrivalDateExpected\": null,\n            \"arrivalDateEstimated\": null,\n            \"departureDateExpected\": null,\n            \"departureDateEstimated\": null,\n            \"flightDate\": \"2025-07-03 00:00:00\",\n            \"facility\": null,\n            \"remarks\": null,\n            \"ulds\": null,\n            \"vehicleNumber\": null,\n            \"volume\": null,\n            \"totalVolume\": null\n          },\n          \"transportMode\": null\n        }\n      ]\n    }\n  ],\n  \"logs\": null\n}",
+    "modelVersion": 8,
+    "targetInputType": "JSON",
+    "sourceInputType": "JSON",
+    "outputProlog": {
+        "name": "Prolog script"
+    },
+    "outputEpilog": {
+        "name": "Epilog script"
+    },
+    "sourceTreeNode": {
+        "name": "root",
+        "children": [
+            {
+                "name": "refNum",
+                "value": "260-41367465",
+                "plain": true
+            },
+            {
+                "name": "refType",
+                "value": "AWB",
+                "plain": true
+            },
+            {
+                "name": "origin",
+                "value": "SYD",
+                "plain": true
+            },
+            {
+                "name": "destination",
+                "value": "DFW",
+                "plain": true
+            },
+            {
+                "name": "additionalInfo",
+                "children": [
+                    {
+                        "name": "totalPieces",
+                        "value": "1"
+                    },
+                    {
+                        "name": "pieces"
+                    },
+                    {
+                        "name": "weight",
+                        "children": [
+                            {
+                                "name": "value",
+                                "value": "72",
+                                "plain": true
+                            },
+                            {
+                                "name": "unit",
+                                "value": "KG",
+                                "plain": true
+                            }
+                        ]
+                    },
+                    {
+                        "name": "totalWeight"
+                    },
+                    {
+                        "name": "specialHandling"
+                    },
+                    {
+                        "name": "volume"
+                    },
+                    {
+                        "name": "totalVolume"
+                    },
+                    {
+                        "name": "products"
+                    },
+                    {
+                        "name": "commodity"
+                    },
+                    {
+                        "name": "offsetData"
+                    },
+                    {
+                        "name": "currentStatus"
+                    },
+                    {
+                        "name": "departureArrivalInfo"
+                    }
+                ]
+            },
+            {
+                "name": "shipments",
+                "type": "ar",
+                "children": [
+                    {
+                        "name": "[0]",
+                        "type": "ac",
+                        "children": [
+                            {
+                                "name": "events",
+                                "type": "ar",
+                                "children": [
+                                    {
+                                        "name": "[0]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Booked",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode",
+                                                "value": "KK",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-05-27 13:59:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 100.0 Kg booked on FJ910 02JUN25 with status – KK",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-06-02 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "value": "FJ910",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[1]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Booked",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode",
+                                                "value": "KK",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-07-01 07:38:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 72.0 Kg booked on FJ910 02JUL25 with status – KK",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-02 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "value": "FJ910",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[2]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Received from shipper",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-07-01 17:33:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 72.0 Kg received from shipper",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-01 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[3]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Manifested on flight",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-07-02 10:52:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 72.0 Kg manifested on FJ910 02JUL25",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-02 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "value": "FJ910",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[4]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Departed on flight",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-07-02 13:15:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 72.0 Kg departed on FJ910 02JUL25",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-02 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "value": "FJ910",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[5]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Departed",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-07-02 13:35:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 72.0 Kg departed on FJ910 02JUL25",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-02 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "value": "FJ910",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[6]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Departed",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-07-02 13:35:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 72.0 Kg departed on FJ910 02JUL25",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-02 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "value": "FJ910",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[7]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Departed",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-07-03 16:55:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "SYD",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 72.0 Kg departed on FJ910 02JUL25",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-02 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "value": "FJ910",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[8]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Booked",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode",
+                                                "value": "KK",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-05-27 13:59:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "DFW",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 100.0 Kg booked on FJ890 03JUN25 with status – KK",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-06-03 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "value": "FJ890",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[9]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Booked",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode",
+                                                "value": "KK",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-07-01 07:38:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "DFW",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 72.0 Kg booked on FJ890 03JUL25 with status – KK",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-03 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "value": "FJ890",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[10]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Booked",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode",
+                                                "value": "KK",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-07-03 16:55:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "DFW",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 72.0 Kg booked on FJ890 03JUL25 with status – KK",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-03 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "value": "FJ890",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[11]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "mode"
+                                            },
+                                            {
+                                                "name": "status",
+                                                "value": "Departed on flight",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventCode"
+                                            },
+                                            {
+                                                "name": "eventTime",
+                                                "value": "2025-07-03 21:56:00",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "eventQualifier"
+                                            },
+                                            {
+                                                "name": "location",
+                                                "children": [
+                                                    {
+                                                        "name": "name",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "city"
+                                                    },
+                                                    {
+                                                        "name": "state"
+                                                    },
+                                                    {
+                                                        "name": "country"
+                                                    },
+                                                    {
+                                                        "name": "latitude"
+                                                    },
+                                                    {
+                                                        "name": "longitude"
+                                                    },
+                                                    {
+                                                        "name": "unloCode"
+                                                    },
+                                                    {
+                                                        "name": "terminal"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces",
+                                                        "value": "1",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight",
+                                                        "children": [
+                                                            {
+                                                                "name": "value",
+                                                                "value": "72"
+                                                            },
+                                                            {
+                                                                "name": "unit",
+                                                                "value": "KG",
+                                                                "plain": true
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin",
+                                                        "value": "NAN",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "value": "DFW",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "description",
+                                                        "value": "1 piece 72.0 Kg departed on FJ890 03JUL25",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-03 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber",
+                                                        "value": "FJ890",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "routes",
+                                "type": "ar",
+                                "children": [
+                                    {
+                                        "name": "[0]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "origin",
+                                                "value": "SYD",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "destination",
+                                                "value": "NAN",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "routeIndex",
+                                                "value": "0"
+                                            },
+                                            {
+                                                "name": "date"
+                                            },
+                                            {
+                                                "name": "flightNum",
+                                                "value": "FJ910",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "estimatedDepartureDate"
+                                            },
+                                            {
+                                                "name": "estimatedArrivalDate"
+                                            },
+                                            {
+                                                "name": "departureDate"
+                                            },
+                                            {
+                                                "name": "departureDateExpected"
+                                            },
+                                            {
+                                                "name": "arrivalDate"
+                                            },
+                                            {
+                                                "name": "arrivalDateExpected"
+                                            },
+                                            {
+                                                "name": "totalPieces",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "name": "pieces"
+                                            },
+                                            {
+                                                "name": "weight",
+                                                "children": [
+                                                    {
+                                                        "name": "value",
+                                                        "value": "72",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "unit",
+                                                        "value": "KG",
+                                                        "plain": true
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "totalWeight"
+                                            },
+                                            {
+                                                "name": "volume"
+                                            },
+                                            {
+                                                "name": "totalVolume"
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces"
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight"
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin"
+                                                    },
+                                                    {
+                                                        "name": "destination"
+                                                    },
+                                                    {
+                                                        "name": "description"
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-02 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber"
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "transportMode"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "[1]",
+                                        "type": "ac",
+                                        "children": [
+                                            {
+                                                "name": "origin",
+                                                "value": "NAN",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "destination",
+                                                "value": "DFW",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "routeIndex",
+                                                "value": "0"
+                                            },
+                                            {
+                                                "name": "date"
+                                            },
+                                            {
+                                                "name": "flightNum",
+                                                "value": "FJ890",
+                                                "plain": true
+                                            },
+                                            {
+                                                "name": "estimatedDepartureDate"
+                                            },
+                                            {
+                                                "name": "estimatedArrivalDate"
+                                            },
+                                            {
+                                                "name": "departureDate"
+                                            },
+                                            {
+                                                "name": "departureDateExpected"
+                                            },
+                                            {
+                                                "name": "arrivalDate"
+                                            },
+                                            {
+                                                "name": "arrivalDateExpected"
+                                            },
+                                            {
+                                                "name": "totalPieces",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "name": "pieces"
+                                            },
+                                            {
+                                                "name": "weight",
+                                                "children": [
+                                                    {
+                                                        "name": "value",
+                                                        "value": "72",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "unit",
+                                                        "value": "KG",
+                                                        "plain": true
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "totalWeight"
+                                            },
+                                            {
+                                                "name": "volume"
+                                            },
+                                            {
+                                                "name": "totalVolume"
+                                            },
+                                            {
+                                                "name": "additionalInfo",
+                                                "children": [
+                                                    {
+                                                        "name": "totalPieces"
+                                                    },
+                                                    {
+                                                        "name": "weight"
+                                                    },
+                                                    {
+                                                        "name": "totalWeight"
+                                                    },
+                                                    {
+                                                        "name": "specialHandling"
+                                                    },
+                                                    {
+                                                        "name": "origin"
+                                                    },
+                                                    {
+                                                        "name": "destination"
+                                                    },
+                                                    {
+                                                        "name": "description"
+                                                    },
+                                                    {
+                                                        "name": "departureDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDate"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "arrivalDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "departureDateExpected"
+                                                    },
+                                                    {
+                                                        "name": "departureDateEstimated"
+                                                    },
+                                                    {
+                                                        "name": "flightDate",
+                                                        "value": "2025-07-03 00:00:00",
+                                                        "plain": true
+                                                    },
+                                                    {
+                                                        "name": "facility"
+                                                    },
+                                                    {
+                                                        "name": "remarks"
+                                                    },
+                                                    {
+                                                        "name": "ulds"
+                                                    },
+                                                    {
+                                                        "name": "vehicleNumber"
+                                                    },
+                                                    {
+                                                        "name": "volume"
+                                                    },
+                                                    {
+                                                        "name": "totalVolume"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "transportMode"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "logs"
+            }
+        ]
+    },
+    "targetTreeNode": {
+        "name": "root",
+        "children": [
+            {
+                "name": "masterAirWayBillNumber",
+                "value": "var0",
+                "references": [
+                    {
+                        "jsonId": 1,
+                        "path": "root.refNum",
+                        "var": "var0",
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "trackingNumber",
+                "value": "trackingNumber",
+                "codeValue": "def trackingNumber \nif(var0 != null){\n    trackingNumber = var0.replace(\"-\",\"\")\n}"
+            },
+            {
+                "name": "consigneeName",
+                "plain": true
+            },
+            {
+                "name": "shipperName",
+                "plain": true
+            },
+            {
+                "name": "retrievedAt",
+                "plain": true
+            },
+            {
+                "name": "houseAirWayBillNumbers",
+                "type": "ar",
+                "children": [
+                    {
+                        "name": "[0]",
+                        "type": "ac",
+                        "children": [
+                            {
+                                "name": "origin",
+                                "plain": true
+                            },
+                            {
+                                "name": "destination",
+                                "plain": true
+                            },
+                            {
+                                "name": "number",
+                                "plain": true
+                            },
+                            {
+                                "name": "quantity",
+                                "value": "0"
+                            },
+                            {
+                                "name": "weight",
+                                "children": [
+                                    {
+                                        "name": "value",
+                                        "plain": true
+                                    },
+                                    {
+                                        "name": "unit",
+                                        "plain": true
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "origin",
+                "value": "var1",
+                "references": [
+                    {
+                        "jsonId": 2,
+                        "path": "root.origin",
+                        "var": "var1",
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "destination",
+                "value": "var2",
+                "references": [
+                    {
+                        "jsonId": 3,
+                        "path": "root.destination",
+                        "var": "var2",
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "routes",
+                "type": "ar"
+            },
+            {
+                "name": "totalPieces",
+                "value": "var3",
+                "codeValue": "var3 = MapperUtility.convertToDouble(var3)",
+                "references": [
+                    {
+                        "jsonId": 4,
+                        "path": "root.additionalInfo.totalPieces",
+                        "var": "var3",
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "totalWeight",
+                "children": [
+                    {
+                        "name": "value",
+                        "value": "_value",
+                        "codeValue": "_value = MapperUtility.convertToDouble(_value)",
+                        "references": [
+                            {
+                                "jsonId": 5,
+                                "path": "root.additionalInfo.weight.value",
+                                "var": "_value",
+                                "text": true
+                            }
+                        ]
+                    },
+                    {
+                        "name": "unit",
+                        "value": "_unit",
+                        "references": [
+                            {
+                                "jsonId": 6,
+                                "path": "root.additionalInfo.weight.unit",
+                                "var": "_unit",
+                                "text": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "totalVolume",
+                "children": [
+                    {
+                        "name": "value",
+                        "value": "0"
+                    },
+                    {
+                        "name": "unit",
+                        "plain": true
+                    }
+                ]
+            },
+            {
+                "name": "CALC:Events&Stops",
+                "value": "LinkedList<Stop> stopList = new LinkedList<Stop>()\r\nLinkedList<Event> eventList = new LinkedList<Event>()\r\nLinkedList<String> specialHandlingList = new LinkedList<String>()\r\n//specialHandlingList.add(\"\") \r\n\r\ndef CarrierEventCodeMap = [:]\r\ndef CarrierDescriptionCodeMap = [:]\r\n\r\n/* Example to populate and read the above maps\r\nCarrierEventCodeMap[\"TFD\"] = \"AN\"\r\nCarrierDescriptionCodeMap[\"Booked\"] = \"DR\"\r\n\r\nCarrierEventCodeMap.get(\"TFD\")\r\n*/\r\n\r\nCarrierEventCodeMap[\"NFD\"] = \"NFD\"\r\n//CarrierEventCodeMap[\"RCF\"] = \"UC\"\r\nCarrierEventCodeMap[\"RCF\"] = \"RCF\"\r\nCarrierEventCodeMap[\"DEP\"] = \"P1\"\r\nCarrierEventCodeMap[\"RCS\"] = \"RCS\"\r\nCarrierEventCodeMap[\"FOH\"] = \"FOH\"\r\nCarrierEventCodeMap[\"DLV\"] = \"DLV\"\r\nCarrierEventCodeMap[\"AWD\"] = \"AWD\"\r\nCarrierEventCodeMap[\"TFD\"] = \"AN\"\r\nCarrierEventCodeMap[\"AWR\"] = \"AWR\"\r\nCarrierEventCodeMap[\"CCD\"] = \"CCD\"\r\nCarrierEventCodeMap[\"CRC\"] = \"CRC\"\r\nCarrierEventCodeMap[\"DIS\"] = \"DIS\"\r\nCarrierEventCodeMap[\"BKD\"] = \"DR\"\r\nCarrierEventCodeMap[\"BKG\"] = \"DR\"\r\nCarrierEventCodeMap[\"FWB\"] = \"R1\"\r\nCarrierEventCodeMap[\"FFM\"] = \"MAN\"\r\nCarrierEventCodeMap[\"MAN\"] = \"MAN\"\r\nCarrierEventCodeMap[\"PRE\"] = \"PRE\"\r\nCarrierEventCodeMap[\"RCT\"] = \"R1\"\r\nCarrierEventCodeMap[\"TRM\"] = \"TRM\"\r\nCarrierEventCodeMap[\"ARR\"] = \"X4\"\r\n\r\nCarrierDescriptionCodeMap[\"delivered\"] = \"DLV\"\r\nCarrierDescriptionCodeMap[\"document delivered to forwarder\"] = \"AWD\"\r\nCarrierDescriptionCodeMap[\"freight accepted at airport\"] = \"RCF\"\r\nCarrierDescriptionCodeMap[\"arrived\"] = \"X4\"\r\nCarrierDescriptionCodeMap[\"departed\"] = \"P1\"\r\nCarrierDescriptionCodeMap[\"departed on flight\"] = \"P1\"\r\nCarrierDescriptionCodeMap[\"manifested on flight\"] = \"MAN\"\r\nCarrierDescriptionCodeMap[\"airline received\"] = \"RCS\"\r\nCarrierDescriptionCodeMap[\"received from shipper\"] = \"RCS\"\r\nCarrierDescriptionCodeMap[\"freight on hand\"] = \"FOH\"\r\nCarrierDescriptionCodeMap[\"discrepancy\"] = \"DIS\"\r\nCarrierDescriptionCodeMap[\"freight received from airline\"] = \"R1\"\r\nCarrierDescriptionCodeMap[\"freight ready for pick up\"] = \"NFD\"\r\nCarrierDescriptionCodeMap[\"freight transferred to airline\"] = \"AN\"\r\nCarrierDescriptionCodeMap[\"documents received\"] = \"AWR\"\r\nCarrierDescriptionCodeMap[\"other information\"] = \"OCI\"\r\nCarrierDescriptionCodeMap[\"custom cleared\"] = \"CCD\"\r\nCarrierDescriptionCodeMap[\"freight to be transferred to airline\"] = \"TRM\"\r\nCarrierDescriptionCodeMap[\"prepared for loading\"] = \"PRE\"\r\nCarrierDescriptionCodeMap[\"booked\"] = \"DR\"\r\n\r\n\r\n stopLoop.eachWithIndex{ st,st_index->\r\n    Stop stopObj = new Stop()\r\n    stopObj.origin = st.origin.toString()\r\n    stopObj.destination = st.destination.toString()\r\n    stopObj.totalPieces = st.totalPieces.toString()\r\n    stopObj.totalWeightValue = st.totalWeight.value.toString()\r\n    stopObj.totalWeightUnit = st.totalWeight.unit.toString()\r\n    stopObj.vehicleNumber = st.flightNum.toString()\r\n    stopObj.segmentIndex = st.routeIndex.toString()\r\n    //stopObj.transportMode = st.transportMode.toString()\r\n    stopObj.scheduledDepartureTime = st.departureDateExpected.toString()\r\n    stopObj.actualDepartureTime =  st.departureDate.toString()\r\n    stopObj.scheduledArrivalTime = st.arrivalDateExpected.toString()\r\n    stopObj.actualArrivalTime = st.arrivalDate.toString()\r\n    stopObj.estimatedDepartureTime = st.estimatedDepartureTime.toString()\r\n    stopObj.estimatedArrivalTime = st.estimatedArrivalTime.toString()\r\n    stopObj.timeZone = \"\"//st.timeZone.toString()\r\n    stopObj.bookingStatus = \"\" //st.bookingStatus.toString()\r\n    stopObj.segmentIndex = \"${st_index+1}\"\r\n    stopObj.bookingStatusDescription = st.additionalInfo.description.toString()\r\n    \r\n    stopList.add(stopObj)\r\n}\r\n if(eventLoop.size()>0 && eventLoop[0].toString().length()>0){\r\neventLoop.eachWithIndex{ et,et_index->\r\n    Event eventObj = new Event()\r\n    \r\n    //populate all the variables\r\neventObj.eventType = et.eventQualifier.toString()\r\neventObj.description = et.status.toString()\r\neventObj.carrierEventCode = et.eventCode.toString()\r\n//eventObj.eventCode \r\n\r\neventObj.station = et.location.name.toString()\r\neventObj.eventCode = CarrierEventCodeMap.get(eventObj.carrierEventCode)\r\nif(MapperUtility.isNullOrEmpty(eventObj.eventCode))\r\n{\r\n    eventObj.eventCode = CarrierDescriptionCodeMap.get(eventObj.description.toLowerCase())\r\n}\r\nif(eventObj.eventCode==\"RCF\" && eventObj.station.toUpperCase()==var1.toUpperCase())\r\n{\r\n    eventObj.eventCode = \"RCS\"\r\n}\r\neventObj.totalPieces = et.additionalInfo.totalPieces.toString()\r\neventObj.totalWeightValue = et.additionalInfo.totalWeight.value.toString()\r\neventObj.totalWeightUnit = et.additionalInfo.totalWeight.unit.toString()\r\n\r\neventObj.eventTime = et.eventTime.toString()\r\neventObj.sequence = \"${et_index+1}\" //et.sequence.toString() might have to sort\r\neventObj.estimatedDepartureTime = et.additionalInfo.estimatedDepartureTime.toString()\r\neventObj.estimatedArrivalTime = et.additionalInfo.estimatedArrivalTime.toString()\r\neventObj.actualDepartureTime = et.additionalInfo.departureDate.toString()\r\neventObj.scheduledArrivalTime = et.additionalInfo.arrivalDateExpected.toString()\r\neventObj.scheduledDepartureTime = et.additionalInfo.departureDateExpected.toString()\r\neventObj.actualArrivalTime = et.additionalInfo.arrivalDate.toString()\r\neventObj.vehicleNumber = et.additionalInfo.vehicleNumber.toString()\r\n\r\neventObj.departureLocation = et.additionalInfo.origin.toString()\r\neventObj.arrivalLocation = et.additionalInfo.destination.toString()\r\n\r\nif(eventObj.description.toLowerCase().contains(\"depart facility\")){\r\n    eventObj.description = \"Depart Facility\"\r\n}\r\n// if(eventObj.description.toLowerCase().contains(\"departed\") && (eventObj.station == var1)){\r\n//     eventObj.eventCode = \"AF\"\r\n// }\r\n\r\nif(eventObj.description.toLowerCase().contains(\"manifested\")){\r\n    eventObj.departureLocation = eventObj.station\r\n    if(eventObj.description.toLowerCase().contains(\"to\") && eventObj.description.toLowerCase().contains(\" \")){\r\n        def arr = eventObj.description.split(\" \")\r\n        eventObj.arrivalLocation = arr[arr.size()-1].trim()\r\n    }\r\n}\r\n// eventObj.totalVolumeValue = et.totalVolume.value.toString()\r\n// eventObj.totalVolumeUnit = et.totalVolume.unit.toString()\r\n// eventObj.timeZone = et.timeZone.toString()\r\n// eventObj.transportMode = et.transportMode.toString()\r\n// eventObj.transferManifestNumber = et.transferManifestNumber.toString()\r\n// eventObj.transferredFromName = et.transferredFromName.toString()\r\n// eventObj.receivedFromName = et.receivedFromName.toString()\r\n// eventObj.deliveryToName = et.deliveryToName.toString()\r\n// eventObj.notificationToName = et.notificationToName.toString()\r\n// eventObj.receivingCarrier = et.receivingCarrier.toString()\r\n// eventObj.transferringCarrier = et.transferringCarrier.toString()\r\n// eventObj.discrepencyCode = et.discrepencyCode.toString()\r\n\r\net.additionalInfo.ulds.each{ uld_it ->\r\n Uld uldObj = new Uld()\r\n uldObj.type=uld_it.type.toString()\r\n uldObj.number=uld_it.number.toString()\r\n uldObj.serialNumber=uld_it.serialNumber.toString()\r\n uldObj.ownerCode=uld_it.ownerCode.toString()\r\n uldObj.quantity=uld_it.quantity.toString()\r\n uldObj.weightOfULDContentsValue=uld_it.weightOfULDContents.value.toString()\r\n uldObj.weightOfULDContentsUnit=uld_it.weightOfULDContents.unit.toString()\r\n eventObj.uldList.add(uldObj)\r\n}\r\neventList.add(eventObj)\r\n}\r\n}\r\n//eventList = eventList.reverse()\r\ndef seq=1\r\neventList.each {\r\n    it.sequence = seq\r\n\r\n    seq++\r\n}",
+                "type": "c",
+                "references": [
+                    {
+                        "jsonId": 7,
+                        "path": "root.shipments.events",
+                        "var": "eventLoop",
+                        "text": false
+                    },
+                    {
+                        "jsonId": 8,
+                        "path": "root.shipments.routes",
+                        "var": "stopLoop",
+                        "text": false
+                    }
+                ]
+            },
+            {
+                "name": "additionalInformation",
+                "children": [
+                    {
+                        "name": "specialHandling",
+                        "type": "ar",
+                        "children": [
+                            {
+                                "name": "[0]",
+                                "value": "it",
+                                "type": "ac",
+                                "looper": {
+                                    "loopStatement": "specialHandlingList.each"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "flightPlan",
+                "children": [
+                    {
+                        "name": "segmentDetails",
+                        "type": "ar",
+                        "children": [
+                            {
+                                "name": "[0]",
+                                "codeValue": "    String origin = it.origin\n    String destination = it.destination\n    def totalPieces = MapperUtility.convertToDouble(it.totalPieces)\n    def totalWeightValue = MapperUtility.convertToDouble(it.totalWeightValue)\n    String totalWeightUnit = it.totalWeightUnit\n    def totalVolumeValue = MapperUtility.convertToDouble(it.totalVolumeValue)\n    String totalVolumeUnit = it.totalVolumeUnit\n    String vehicleNumber = it.vehicleNumber\n    String transportMode = it.transportMode\n    String scheduledDepartureTime = it.scheduledDepartureTime\n    String actualDepartureTime = it.actualDepartureTime\n    String scheduledArrivalTime = it.scheduledArrivalTime\n    String actualArrivalTime = it.actualArrivalTime\n    String estimatedDepartureTime = it.estimatedDepartureTime\n    String estimatedArrivalTime = it.estimatedArrivalTime\n    String timeZone = it.timeZone\n    String bookingStatus = it.bookingStatus\n    def segmentIndex = MapperUtility.convertToDouble(it.segmentIndex)\n    String bookingStatusDescription = it.bookingStatusDescription",
+                                "type": "ac",
+                                "looper": {
+                                    "loopStatement": "stopList.each"
+                                },
+                                "children": [
+                                    {
+                                        "name": "origin",
+                                        "value": "origin"
+                                    },
+                                    {
+                                        "name": "destination",
+                                        "value": "destination"
+                                    },
+                                    {
+                                        "name": "totalPieces",
+                                        "value": "totalPieces"
+                                    },
+                                    {
+                                        "name": "totalWeight",
+                                        "children": [
+                                            {
+                                                "name": "value",
+                                                "value": "totalWeightValue"
+                                            },
+                                            {
+                                                "name": "unit",
+                                                "value": "totalWeightUnit"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "totalVolume",
+                                        "children": [
+                                            {
+                                                "name": "value",
+                                                "value": "totalVolumeValue"
+                                            },
+                                            {
+                                                "name": "unit",
+                                                "value": "totalVolumeUnit"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "vehicleNumber",
+                                        "value": "vehicleNumber"
+                                    },
+                                    {
+                                        "name": "transportMode",
+                                        "value": "transportMode"
+                                    },
+                                    {
+                                        "name": "scheduledDepartureTime",
+                                        "value": "scheduledDepartureTime"
+                                    },
+                                    {
+                                        "name": "actualDepartureTime",
+                                        "value": "actualDepartureTime"
+                                    },
+                                    {
+                                        "name": "scheduledArrivalTime",
+                                        "value": "scheduledArrivalTime"
+                                    },
+                                    {
+                                        "name": "actualArrivalTime",
+                                        "value": "actualArrivalTime"
+                                    },
+                                    {
+                                        "name": "estimatedDepartureTime",
+                                        "value": "estimatedDepartureTime"
+                                    },
+                                    {
+                                        "name": "estimatedArrivalTime",
+                                        "value": "estimatedArrivalTime"
+                                    },
+                                    {
+                                        "name": "timeZone",
+                                        "value": "timeZone"
+                                    },
+                                    {
+                                        "name": "bookingStatus",
+                                        "value": "bookingStatus"
+                                    },
+                                    {
+                                        "name": "segmentIndex",
+                                        "value": "segmentIndex"
+                                    },
+                                    {
+                                        "name": "bookingStatusDescription",
+                                        "value": "bookingStatusDescription"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "milestones",
+                "type": "ar",
+                "children": [
+                    {
+                        "name": "[0]",
+                        "codeValue": "String eventType = it.eventType\r\nString carrierEventCode = it.carrierEventCode\r\nString eventCode = it.eventCode\r\nString description = it.description\r\nString station = it.station\r\ndef totalPieces = MapperUtility.convertToDouble(it.totalPieces)\r\ndef totalWeightValue = MapperUtility.convertToDouble(it.totalWeightValue)\r\nString totalWeightUnit = it.totalWeightUnit\r\ndef totalVolumeValue = MapperUtility.convertToDouble(it.totalVolumeValue)\r\nString totalVolumeUnit = it.totalVolumeUnit\r\nString timeZone = it.timeZone\r\nString eventTime = it.eventTime\r\ndef sequence = MapperUtility.convertToDouble(it.sequence)\r\nString estimatedDepartureTime = it.estimatedDepartureTime\r\nString estimatedArrivalTime = it.estimatedArrivalTime\r\nString actualDepartureTime = it.actualDepartureTime\r\nString scheduledArrivalTime = it.scheduledArrivalTime\r\nString scheduledDepartureTime = it.scheduledDepartureTime\r\nString actualArrivalTime = it.actualArrivalTime\r\nString vehicleNumber = it.vehicleNumber\r\nString transportMode = it.transportMode\r\nString departureLocation = it.departureLocation\r\nString arrivalLocation = it.arrivalLocation\r\nString transferManifestNumber = it.transferManifestNumber\r\nString transferredFromName = it.transferredFromName\r\nString receivedFromName = it.receivedFromName\r\nString deliveryToName = it.deliveryToName\r\nString notificationToName = it.notificationToName\r\nString receivingCarrier = it.receivingCarrier\r\nString transferringCarrier = it.transferringCarrier\r\nString discrepencyCode = it.discrepencyCode",
+                        "type": "ac",
+                        "looper": {
+                            "loopStatement": "eventList.each"
+                        },
+                        "children": [
+                            {
+                                "name": "eventType",
+                                "value": "eventType"
+                            },
+                            {
+                                "name": "carrierEventCode",
+                                "value": "carrierEventCode"
+                            },
+                            {
+                                "name": "eventCode",
+                                "value": "eventCode"
+                            },
+                            {
+                                "name": "description",
+                                "value": "description"
+                            },
+                            {
+                                "name": "station",
+                                "value": "station"
+                            },
+                            {
+                                "name": "totalPieces",
+                                "value": "totalPieces"
+                            },
+                            {
+                                "name": "totalWeight",
+                                "children": [
+                                    {
+                                        "name": "value",
+                                        "value": "totalWeightValue"
+                                    },
+                                    {
+                                        "name": "unit",
+                                        "value": "totalWeightUnit"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "totalVolume",
+                                "children": [
+                                    {
+                                        "name": "value",
+                                        "value": "totalVolumeValue"
+                                    },
+                                    {
+                                        "name": "unit",
+                                        "value": "totalVolumeUnit"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "timeZone",
+                                "value": "timeZone"
+                            },
+                            {
+                                "name": "eventTime",
+                                "value": "eventTime"
+                            },
+                            {
+                                "name": "sequence",
+                                "value": "sequence"
+                            },
+                            {
+                                "name": "estimatedDepartureTime",
+                                "value": "estimatedDepartureTime"
+                            },
+                            {
+                                "name": "estimatedArrivalTime",
+                                "value": "estimatedArrivalTime"
+                            },
+                            {
+                                "name": "actualDepartureTime",
+                                "value": "actualDepartureTime"
+                            },
+                            {
+                                "name": "scheduledArrivalTime",
+                                "value": "scheduledArrivalTime"
+                            },
+                            {
+                                "name": "scheduledDepartureTime",
+                                "value": "scheduledDepartureTime"
+                            },
+                            {
+                                "name": "actualArrivalTime",
+                                "value": "actualArrivalTime"
+                            },
+                            {
+                                "name": "ulds",
+                                "type": "ar",
+                                "children": [
+                                    {
+                                        "name": "[0]",
+                                        "codeValue": "String number = it.number\n String type = it.type\n    String serialNumber = it.serialNumber\n    String ownerCode = it.ownerCode\n    String quantity = it.quantity\n    def weightOfULDContentsValue = MapperUtility.convertToDouble(it.weightOfULDContentsValue)\n    String weightOfULDContentsUnit = it.weightOfULDContentsUnit\n",
+                                        "type": "ac",
+                                        "looper": {
+                                            "loopStatement": "it.uldList.each"
+                                        },
+                                        "children": [
+                                            {
+                                                "name": "type",
+                                                "value": "type"
+                                            },
+                                            {
+                                                "name": "number",
+                                                "value": "number"
+                                            },
+                                            {
+                                                "name": "serialNumber",
+                                                "value": "serialNumber"
+                                            },
+                                            {
+                                                "name": "ownerCode",
+                                                "value": "ownerCode"
+                                            },
+                                            {
+                                                "name": "quantity",
+                                                "value": "quantity"
+                                            },
+                                            {
+                                                "name": "weightOfULDContents",
+                                                "children": [
+                                                    {
+                                                        "name": "value",
+                                                        "value": "weightOfULDContentsValue"
+                                                    },
+                                                    {
+                                                        "name": "unit",
+                                                        "value": "weightOfULDContentsUnit"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "vehicleNumber",
+                                "value": "vehicleNumber"
+                            },
+                            {
+                                "name": "transportMode",
+                                "value": "transportMode"
+                            },
+                            {
+                                "name": "departureLocation",
+                                "value": "departureLocation"
+                            },
+                            {
+                                "name": "arrivalLocation",
+                                "value": "arrivalLocation"
+                            },
+                            {
+                                "name": "transferManifestNumber",
+                                "value": "transferManifestNumber"
+                            },
+                            {
+                                "name": "transferredFromName",
+                                "value": "transferredFromName"
+                            },
+                            {
+                                "name": "receivedFromName",
+                                "value": "receivedFromName"
+                            },
+                            {
+                                "name": "deliveryToName",
+                                "value": "deliveryToName"
+                            },
+                            {
+                                "name": "notificationToName",
+                                "value": "notificationToName"
+                            },
+                            {
+                                "name": "receivingCarrier",
+                                "value": "receivingCarrier"
+                            },
+                            {
+                                "name": "transferringCarrier",
+                                "value": "transferringCarrier"
+                            },
+                            {
+                                "name": "discrepencyCode",
+                                "value": "discrepencyCode"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "mapperPreferences": {
+        "debugComment": false,
+        "overrideTargetValue": true,
+        "autoMap": false,
+        "autoMapOneToMany": false,
+        "autoMapIncludeSubNodes": false
+    },
+    "referenceVarCount": 6
+}

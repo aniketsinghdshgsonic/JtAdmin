@@ -1,0 +1,828 @@
+{
+  "name": "FijiAirwaysCustomMapping",
+  "sourceInputType": "JSON",
+  "targetInputType": "JSON",
+  "source_data": {
+    "refNum": "260-41367465",
+    "refType": "AWB",
+    "origin": "SYD",
+    "destination": "DFW",
+    "additionalInfo": {
+      "totalPieces": 1,
+      "pieces": null,
+      "weight": {
+        "value": "72",
+        "unit": "KG"
+      },
+      "totalWeight": null,
+      "specialHandling": null,
+      "volume": null,
+      "totalVolume": null,
+      "products": null,
+      "commodity": null,
+      "offsetData": null,
+      "currentStatus": null,
+      "departureArrivalInfo": null
+    },
+    "shipments": [
+      {
+        "events": [
+          {
+            "mode": null,
+            "status": "Booked1",
+            "eventCode": "KK",
+            "eventTime": "2025-05-27 13:59:00",
+            "eventQualifier": null,
+            "location": {
+              "name": "SYD",
+              "city": null,
+              "state": null,
+              "country": null,
+              "latitude": null,
+              "longitude": null,
+              "unloCode": null,
+              "terminal": null
+            },
+            "additionalInfo": {
+              "totalPieces": "1",
+              "weight": null,
+              "totalWeight": {
+                "value": 72,
+                "unit": "KG"
+              },
+              "specialHandling": null,
+              "origin": "SYD",
+              "destination": "NAN",
+              "description": "1 piece 100.0 Kg booked on FJ910 02JUN25 with status – KK",
+              "departureDate": null,
+              "arrivalDate": null,
+              "arrivalDateExpected": null,
+              "arrivalDateEstimated": null,
+              "departureDateExpected": null,
+              "departureDateEstimated": null,
+              "flightDate": "2025-06-02 00:00:00",
+              "facility": null,
+              "remarks": null,
+              "ulds": null,
+              "vehicleNumber": "FJ910",
+              "volume": null,
+              "totalVolume": null
+            }
+          },
+          {
+            "mode": null,
+            "status": "Booked",
+            "eventCode": "KK",
+            "eventTime": "2025-07-01 07:38:00",
+            "eventQualifier": null,
+            "location": {
+              "name": "SYD",
+              "city": null,
+              "state": null,
+              "country": null,
+              "latitude": null,
+              "longitude": null,
+              "unloCode": null,
+              "terminal": null
+            },
+            "additionalInfo": {
+              "totalPieces": "1",
+              "weight": null,
+              "totalWeight": {
+                "value": 72,
+                "unit": "KG"
+              },
+              "specialHandling": null,
+              "origin": "SYD",
+              "destination": "NAN",
+              "description": "1 piece 72.0 Kg booked on FJ910 02JUL25 with status – KK",
+              "departureDate": null,
+              "arrivalDate": null,
+              "arrivalDateExpected": null,
+              "arrivalDateEstimated": null,
+              "departureDateExpected": null,
+              "departureDateEstimated": null,
+              "flightDate": "2025-07-02 00:00:00",
+              "facility": null,
+              "remarks": null,
+              "ulds": null,
+              "vehicleNumber": "FJ910",
+              "volume": null,
+              "totalVolume": null
+            }
+          },
+          {
+            "mode": null,
+            "status": "Received from shipper",
+            "eventCode": null,
+            "eventTime": "2025-07-01 17:33:00",
+            "eventQualifier": null,
+            "location": {
+              "name": "SYD",
+              "city": null,
+              "state": null,
+              "country": null,
+              "latitude": null,
+              "longitude": null,
+              "unloCode": null,
+              "terminal": null
+            },
+            "additionalInfo": {
+              "totalPieces": "1",
+              "weight": null,
+              "totalWeight": {
+                "value": 72,
+                "unit": "KG"
+              },
+              "specialHandling": null,
+              "origin": "SYD",
+              "destination": "NAN",
+              "description": "1 piece 72.0 Kg received from shipper",
+              "departureDate": null,
+              "arrivalDate": null,
+              "arrivalDateExpected": null,
+              "arrivalDateEstimated": null,
+              "departureDateExpected": null,
+              "departureDateEstimated": null,
+              "flightDate": "2025-07-01 00:00:00",
+              "facility": null,
+              "remarks": null,
+              "ulds": null,
+              "vehicleNumber": "",
+              "volume": null,
+              "totalVolume": null
+            }
+          },
+          {
+            "mode": null,
+            "status": "Booked",
+            "eventCode": "KK",
+            "eventTime": "2025-05-27 13:59:00",
+            "eventQualifier": null,
+            "location": {
+              "name": "NAN",
+              "city": null,
+              "state": null,
+              "country": null,
+              "latitude": null,
+              "longitude": null,
+              "unloCode": null,
+              "terminal": null
+            },
+            "additionalInfo": {
+              "totalPieces": "1",
+              "weight": null,
+              "totalWeight": {
+                "value": 72,
+                "unit": "KG"
+              },
+              "specialHandling": null,
+              "origin": "NAN",
+              "destination": "DFW",
+              "description": "1 piece 100.0 Kg booked on FJ890 03JUN25 with status – KK",
+              "departureDate": null,
+              "arrivalDate": null,
+              "arrivalDateExpected": null,
+              "arrivalDateEstimated": null,
+              "departureDateExpected": null,
+              "departureDateEstimated": null,
+              "flightDate": "2025-06-03 00:00:00",
+              "facility": null,
+              "remarks": null,
+              "ulds": null,
+              "vehicleNumber": "FJ890",
+              "volume": null,
+              "totalVolume": null
+            }
+          }
+        ],
+        "routes": [
+          {
+            "origin": "SYD",
+            "destination": "NAN",
+            "routeIndex": 0,
+            "date": null,
+            "flightNum": "FJ910",
+            "estimatedDepartureDate": null,
+            "estimatedArrivalDate": null,
+            "departureDate": null,
+            "departureDateExpected": null,
+            "arrivalDate": null,
+            "arrivalDateExpected": null,
+            "totalPieces": 1,
+            "pieces": null,
+            "weight": {
+              "value": "72",
+              "unit": "KG"
+            },
+            "totalWeight": null,
+            "volume": null,
+            "totalVolume": null,
+            "additionalInfo": {
+              "totalPieces": null,
+              "weight": null,
+              "totalWeight": null,
+              "specialHandling": null,
+              "origin": null,
+              "destination": null,
+              "description": null,
+              "departureDate": null,
+              "arrivalDate": null,
+              "arrivalDateExpected": null,
+              "arrivalDateEstimated": null,
+              "departureDateExpected": null,
+              "departureDateEstimated": null,
+              "flightDate": "2025-07-02 00:00:00",
+              "facility": null,
+              "remarks": null,
+              "ulds": null,
+              "vehicleNumber": null,
+              "volume": null,
+              "totalVolume": null
+            },
+            "transportMode": null
+          },
+          {
+            "origin": "NAN",
+            "destination": "DFW",
+            "routeIndex": 0,
+            "date": null,
+            "flightNum": "FJ890",
+            "estimatedDepartureDate": null,
+            "estimatedArrivalDate": null,
+            "departureDate": null,
+            "departureDateExpected": null,
+            "arrivalDate": null,
+            "arrivalDateExpected": null,
+            "totalPieces": 1,
+            "pieces": null,
+            "weight": {
+              "value": "72",
+              "unit": "KG"
+            },
+            "totalWeight": null,
+            "volume": null,
+            "totalVolume": null,
+            "additionalInfo": {
+              "totalPieces": null,
+              "weight": null,
+              "totalWeight": null,
+              "specialHandling": null,
+              "origin": null,
+              "destination": null,
+              "description": null,
+              "departureDate": null,
+              "arrivalDate": null,
+              "arrivalDateExpected": null,
+              "arrivalDateEstimated": null,
+              "departureDateExpected": null,
+              "departureDateEstimated": null,
+              "flightDate": "2025-07-03 00:00:00",
+              "facility": null,
+              "remarks": null,
+              "ulds": null,
+              "vehicleNumber": null,
+              "volume": null,
+              "totalVolume": null
+            },
+            "transportMode": null
+          }
+        ]
+      }
+    ],
+    "logs": null
+  },
+  "target_mapping": {
+    "name": "FijiAirwaysCustomMapping",
+    "localContext": {
+      "globalVariables": [],
+      "functions": [],
+      "lookupTables": [],
+      "classes": [
+        {
+          "name": "Stop",
+          "value": "class Stop {\n    String origin = \"\"\n    String destination = \"\"\n    String totalPieces = \"\"\n    String totalWeightValue = \"\"\n    String totalWeightUnit = \"\"\n    String totalVolumeValue = \"\"\n    String totalVolumeUnit = \"\"\n    String vehicleNumber = \"\"\n    String transportMode = \"\"\n    String scheduledDepartureTime = \"\"\n    String actualDepartureTime = \"\"\n    String scheduledArrivalTime = \"\"\n    String actualArrivalTime = \"\"\n    String estimatedDepartureTime = \"\"\n    String estimatedArrivalTime = \"\"\n    String timeZone = \"\"\n    String bookingStatus = \"\"\n    String segmentIndex = \"\"\n    String bookingStatusDescription = \"\"\n\n}",
+          "shortValue": "class Stop {..."
+        },
+        {
+          "name": "Event",
+          "value": "class Event {\n    String eventType = \"\"\n    String carrierEventCode = \"\"\n    String eventCode = \"\"\n    String description = \"\"\n    String station = \"\"\n    String totalPieces = \"\"\n    String totalWeightValue = \"\"\n    String totalWeightUnit = \"\"\n    String totalVolumeValue = \"\"\n    String totalVolumeUnit = \"\"\n    String timeZone = \"\"\n    String eventTime = \"\"\n    String sequence = \"\"\n    String estimatedDepartureTime = \"\"\n    String estimatedArrivalTime = \"\"\n    String actualDepartureTime = \"\"\n    String scheduledArrivalTime = \"\"\n    String scheduledDepartureTime = \"\"\n    String actualArrivalTime = \"\"\n    String vehicleNumber = \"\"\n    String transportMode = \"\"\n    String departureLocation = \"\"\n    String arrivalLocation = \"\"\n    String transferManifestNumber = \"\"\n    String transferredFromName = \"\"\n    String receivedFromName = \"\"\n    String deliveryToName = \"\"\n    String notificationToName = \"\"\n    String receivingCarrier = \"\"\n    String transferringCarrier = \"\"\n    String discrepencyCode = \"\"\n    LinkedList<Uld> uldList = new LinkedList<Uld>()\n}",
+          "shortValue": "class Event {..."
+        },
+        {
+          "name": "Uld",
+          "value": "class Uld {\n    String type = \"\"\n    String number = \"\"\n    String serialNumber = \"\"\n    String ownerCode = \"\"\n    String quantity = \"\"\n    String weightOfULDContentsValue = \"\"\n    String weightOfULDContentsUnit = \"\"\n}",
+          "shortValue": "class Uld {..."
+        },
+        {
+          "name": "MapperUtility",
+          "value": "class MapperUtility {\n    public static boolean isNullOrEmpty(def item){\n        if(item == \"\" || item == null || item == \"null\")\n        {\n        return true\n        }\n        return false\n    }\n    public static def convertToDouble(def item)\n    {   \n        def output\n            if(isNullOrEmpty(item))\n            {\n            output= null\n            }\n            else\n            {\n            output = item.toDouble()\n            }\n        return output\n    }\n}",
+          "shortValue": "class MapperUtility {..."
+        }
+      ]
+    },
+    "targetTreeNode": {
+      "name": "root",
+      "children": [
+        {
+          "name": "masterAirWayBillNumber",
+          "value": "var0",
+          "references": [
+            {
+              "jsonId": 1,
+              "path": "root.refNum",
+              "var": "var0",
+              "text": true
+            }
+          ]
+        },
+        {
+          "name": "trackingNumber",
+          "value": "trackingNumber",
+          "codeValue": "def trackingNumber \nif(var0 != null){\n    trackingNumber = var0.replace(\"-\",\"\")\n}"
+        },
+        {
+          "name": "consigneeName",
+          "plain": true
+        },
+        {
+          "name": "shipperName",
+          "plain": true
+        },
+        {
+          "name": "retrievedAt",
+          "plain": true
+        },
+        {
+          "name": "houseAirWayBillNumbers",
+          "type": "ar",
+          "children": [
+            {
+              "name": "[0]",
+              "type": "ac",
+              "children": [
+                {
+                  "name": "origin",
+                  "plain": true
+                },
+                {
+                  "name": "destination",
+                  "plain": true
+                },
+                {
+                  "name": "number",
+                  "plain": true
+                },
+                {
+                  "name": "quantity",
+                  "value": "0"
+                },
+                {
+                  "name": "weight",
+                  "children": [
+                    {
+                      "name": "value",
+                      "plain": true
+                    },
+                    {
+                      "name": "unit",
+                      "plain": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "origin",
+          "value": "var1",
+          "references": [
+            {
+              "jsonId": 2,
+              "path": "root.origin",
+              "var": "var1",
+              "text": true
+            }
+          ]
+        },
+        {
+          "name": "destination",
+          "value": "var2",
+          "references": [
+            {
+              "jsonId": 3,
+              "path": "root.destination",
+              "var": "var2",
+              "text": true
+            }
+          ]
+        },
+        {
+          "name": "routes",
+          "type": "ar"
+        },
+        {
+          "name": "totalPieces",
+          "value": "var3",
+          "codeValue": "var3 = MapperUtility.convertToDouble(var3)",
+          "references": [
+            {
+              "jsonId": 4,
+              "path": "root.additionalInfo.totalPieces",
+              "var": "var3",
+              "text": true
+            }
+          ]
+        },
+        {
+          "name": "totalWeight",
+          "children": [
+            {
+              "name": "value",
+              "value": "_value",
+              "codeValue": "_value = MapperUtility.convertToDouble(_value)",
+              "references": [
+                {
+                  "jsonId": 5,
+                  "path": "root.additionalInfo.weight.value",
+                  "var": "_value",
+                  "text": true
+                }
+              ]
+            },
+            {
+              "name": "unit",
+              "value": "_unit",
+              "references": [
+                {
+                  "jsonId": 6,
+                  "path": "root.additionalInfo.weight.unit",
+                  "var": "_unit",
+                  "text": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "totalVolume",
+          "children": [
+            {
+              "name": "value",
+              "value": "0"
+            },
+            {
+              "name": "unit",
+              "plain": true
+            }
+          ]
+        },
+        {
+          "name": "CALC:Events&Stops",
+          "value": "LinkedList<Stop> stopList = new LinkedList<Stop>()\r\nLinkedList<Event> eventList = new LinkedList<Event>()\r\nLinkedList<String> specialHandlingList = new LinkedList<String>()\r\n\r\ndef CarrierEventCodeMap = [:]\r\ndef CarrierDescriptionCodeMap = [:]\r\n\r\nCarrierEventCodeMap[\"NFD\"] = \"NFD\"\r\nCarrierEventCodeMap[\"RCF\"] = \"RCF\"\r\nCarrierEventCodeMap[\"DEP\"] = \"P1\"\r\nCarrierEventCodeMap[\"RCS\"] = \"RCS\"\r\nCarrierEventCodeMap[\"FOH\"] = \"FOH\"\r\nCarrierEventCodeMap[\"DLV\"] = \"DLV\"\r\nCarrierEventCodeMap[\"AWD\"] = \"AWD\"\r\nCarrierEventCodeMap[\"TFD\"] = \"AN\"\r\nCarrierEventCodeMap[\"AWR\"] = \"AWR\"\r\nCarrierEventCodeMap[\"CCD\"] = \"CCD\"\r\nCarrierEventCodeMap[\"CRC\"] = \"CRC\"\r\nCarrierEventCodeMap[\"DIS\"] = \"DIS\"\r\nCarrierEventCodeMap[\"BKD\"] = \"DR\"\r\nCarrierEventCodeMap[\"BKG\"] = \"DR\"\r\nCarrierEventCodeMap[\"FWB\"] = \"R1\"\r\nCarrierEventCodeMap[\"FFM\"] = \"MAN\"\r\nCarrierEventCodeMap[\"MAN\"] = \"MAN\"\r\nCarrierEventCodeMap[\"PRE\"] = \"PRE\"\r\nCarrierEventCodeMap[\"RCT\"] = \"R1\"\r\nCarrierEventCodeMap[\"TRM\"] = \"TRM\"\r\nCarrierEventCodeMap[\"ARR\"] = \"X4\"\r\n\r\nCarrierDescriptionCodeMap[\"delivered\"] = \"DLV\"\r\nCarrierDescriptionCodeMap[\"document delivered to forwarder\"] = \"AWD\"\r\nCarrierDescriptionCodeMap[\"freight accepted at airport\"] = \"RCF\"\r\nCarrierDescriptionCodeMap[\"arrived\"] = \"X4\"\r\nCarrierDescriptionCodeMap[\"departed\"] = \"P1\"\r\nCarrierDescriptionCodeMap[\"departed on flight\"] = \"P1\"\r\nCarrierDescriptionCodeMap[\"manifested on flight\"] = \"MAN\"\r\nCarrierDescriptionCodeMap[\"airline received\"] = \"RCS\"\r\nCarrierDescriptionCodeMap[\"received from shipper\"] = \"RCS\"\r\nCarrierDescriptionCodeMap[\"freight on hand\"] = \"FOH\"\r\nCarrierDescriptionCodeMap[\"discrepancy\"] = \"DIS\"\r\nCarrierDescriptionCodeMap[\"freight received from airline\"] = \"R1\"\r\nCarrierDescriptionCodeMap[\"freight ready for pick up\"] = \"NFD\"\r\nCarrierDescriptionCodeMap[\"freight transferred to airline\"] = \"AN\"\r\nCarrierDescriptionCodeMap[\"documents received\"] = \"AWR\"\r\nCarrierDescriptionCodeMap[\"other information\"] = \"OCI\"\r\nCarrierDescriptionCodeMap[\"custom cleared\"] = \"CCD\"\r\nCarrierDescriptionCodeMap[\"freight to be transferred to airline\"] = \"TRM\"\r\nCarrierDescriptionCodeMap[\"prepared for loading\"] = \"PRE\"\r\nCarrierDescriptionCodeMap[\"booked\"] = \"DR\"\r\nCarrierDescriptionCodeMap[\"booked1\"] = \"DR\"\r\n\r\nstopLoop.eachWithIndex{ st,st_index->\r\n    Stop stopObj = new Stop()\r\n    stopObj.origin = st.origin.toString()\r\n    stopObj.destination = st.destination.toString()\r\n    stopObj.totalPieces = st.totalPieces.toString()\r\n    stopObj.totalWeightValue = st.weight.value.toString()\r\n    stopObj.totalWeightUnit = st.weight.unit.toString()\r\n    stopObj.vehicleNumber = st.flightNum.toString()\r\n    stopObj.segmentIndex = st.routeIndex.toString()\r\n    stopObj.scheduledDepartureTime = st.departureDateExpected.toString()\r\n    stopObj.actualDepartureTime =  st.departureDate.toString()\r\n    stopObj.scheduledArrivalTime = st.arrivalDateExpected.toString()\r\n    stopObj.actualArrivalTime = st.arrivalDate.toString()\r\n    stopObj.estimatedDepartureTime = st.estimatedDepartureDate.toString()\r\n    stopObj.estimatedArrivalTime = st.estimatedArrivalDate.toString()\r\n    stopObj.timeZone = \"\"\r\n    stopObj.bookingStatus = \"\"\r\n    stopObj.segmentIndex = \"${st_index+1}\"\r\n    stopObj.bookingStatusDescription = st.additionalInfo.description.toString()\r\n    stopList.add(stopObj)\r\n}\r\nif(eventLoop.size()>0 && eventLoop[0].toString().length()>0){\r\neventLoop.eachWithIndex{ et,et_index->\r\n    Event eventObj = new Event()\r\n    eventObj.eventType = et.eventQualifier.toString()\r\n    eventObj.description = et.status.toString()\r\n    eventObj.carrierEventCode = et.eventCode.toString()\r\n    eventObj.station = et.location.name.toString()\r\n    eventObj.eventCode = CarrierEventCodeMap.get(eventObj.carrierEventCode)\r\n    if(MapperUtility.isNullOrEmpty(eventObj.eventCode)){\r\n        eventObj.eventCode = CarrierDescriptionCodeMap.get(eventObj.description.toLowerCase())\r\n    }\r\n    if(eventObj.eventCode==\"RCF\" && eventObj.station.toUpperCase()==var1.toUpperCase()){\r\n        eventObj.eventCode = \"RCS\"\r\n    }\r\n    eventObj.totalPieces = et.additionalInfo.totalPieces.toString()\r\n    eventObj.totalWeightValue = et.additionalInfo.totalWeight.value.toString()\r\n    eventObj.totalWeightUnit = et.additionalInfo.totalWeight.unit.toString()\r\n    eventObj.eventTime = et.eventTime.toString()\r\n    eventObj.sequence = \"${et_index+1}\"\r\n    eventObj.estimatedDepartureTime = et.additionalInfo.estimatedDepartureTime.toString()\r\n    eventObj.estimatedArrivalTime = et.additionalInfo.estimatedArrivalTime.toString()\r\n    eventObj.actualDepartureTime = et.additionalInfo.departureDate.toString()\r\n    eventObj.scheduledArrivalTime = et.additionalInfo.arrivalDateExpected.toString()\r\n    eventObj.scheduledDepartureTime = et.additionalInfo.departureDateExpected.toString()\r\n    eventObj.actualArrivalTime = et.additionalInfo.arrivalDate.toString()\r\n    eventObj.vehicleNumber = et.additionalInfo.vehicleNumber.toString()\r\n    eventObj.departureLocation = et.additionalInfo.origin.toString()\r\n    eventObj.arrivalLocation = et.additionalInfo.destination.toString()\r\n    if(eventObj.description.toLowerCase().contains(\"depart facility\")){\r\n        eventObj.description = \"Depart Facility\"\r\n    }\r\n    if(eventObj.description.toLowerCase().contains(\"manifested\")){\r\n        eventObj.departureLocation = eventObj.station\r\n        if(eventObj.description.toLowerCase().contains(\"to\") && eventObj.description.toLowerCase().contains(\" \")){\r\n            def arr = eventObj.description.split(\" \")\r\n            eventObj.arrivalLocation = arr[arr.size()-1].trim()\r\n        }\r\n    }\r\n    eventList.add(eventObj)\r\n}\r\n}\r\ndef seq=1\r\neventList.each {\r\n    it.sequence = seq\r\n    seq++\r\n}",
+          "type": "c",
+          "references": [
+            {
+              "jsonId": 7,
+              "path": "root.shipments.events",
+              "var": "eventLoop",
+              "text": false
+            },
+            {
+              "jsonId": 8,
+              "path": "root.shipments.routes",
+              "var": "stopLoop",
+              "text": false
+            }
+          ]
+        },
+        {
+          "name": "additionalInformation",
+          "children": [
+            {
+              "name": "specialHandling",
+              "type": "ar",
+              "children": [
+                {
+                  "name": "[0]",
+                  "value": "it",
+                  "type": "ac",
+                  "looper": {
+                    "loopStatement": "specialHandlingList.each"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "flightPlan",
+          "children": [
+            {
+              "name": "segmentDetails",
+              "type": "ar",
+              "children": [
+                {
+                  "name": "[0]",
+                  "codeValue": "    String origin = it.origin\n    String destination = it.destination\n    def totalPieces = MapperUtility.convertToDouble(it.totalPieces)\n    def totalWeightValue = MapperUtility.convertToDouble(it.totalWeightValue)\n    String totalWeightUnit = it.totalWeightUnit\n    def totalVolumeValue = MapperUtility.convertToDouble(it.totalVolumeValue)\n    String totalVolumeUnit = it.totalVolumeUnit\n    String vehicleNumber = it.vehicleNumber\n    String transportMode = it.transportMode\n    String scheduledDepartureTime = it.scheduledDepartureTime\n    String actualDepartureTime = it.actualDepartureTime\n    String scheduledArrivalTime = it.scheduledArrivalTime\n    String actualArrivalTime = it.actualArrivalTime\n    String estimatedDepartureTime = it.estimatedDepartureTime\n    String estimatedArrivalTime = it.estimatedArrivalTime\n    String timeZone = it.timeZone\n    String bookingStatus = it.bookingStatus\n    def segmentIndex = MapperUtility.convertToDouble(it.segmentIndex)\n    String bookingStatusDescription = it.bookingStatusDescription",
+                  "type": "ac",
+                  "looper": {
+                    "loopStatement": "stopList.each"
+                  },
+                  "children": [
+                    {
+                      "name": "origin",
+                      "value": "origin"
+                    },
+                    {
+                      "name": "destination",
+                      "value": "destination"
+                    },
+                    {
+                      "name": "totalPieces",
+                      "value": "totalPieces"
+                    },
+                    {
+                      "name": "totalWeight",
+                      "children": [
+                        {
+                          "name": "value",
+                          "value": "totalWeightValue"
+                        },
+                        {
+                          "name": "unit",
+                          "value": "totalWeightUnit"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "totalVolume",
+                      "children": [
+                        {
+                          "name": "value",
+                          "value": "totalVolumeValue"
+                        },
+                        {
+                          "name": "unit",
+                          "value": "totalVolumeUnit"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "vehicleNumber",
+                      "value": "vehicleNumber"
+                    },
+                    {
+                      "name": "transportMode",
+                      "value": "transportMode"
+                    },
+                    {
+                      "name": "scheduledDepartureTime",
+                      "value": "scheduledDepartureTime"
+                    },
+                    {
+                      "name": "actualDepartureTime",
+                      "value": "actualDepartureTime"
+                    },
+                    {
+                      "name": "scheduledArrivalTime",
+                      "value": "scheduledArrivalTime"
+                    },
+                    {
+                      "name": "actualArrivalTime",
+                      "value": "actualArrivalTime"
+                    },
+                    {
+                      "name": "estimatedDepartureTime",
+                      "value": "estimatedDepartureTime"
+                    },
+                    {
+                      "name": "estimatedArrivalTime",
+                      "value": "estimatedArrivalTime"
+                    },
+                    {
+                      "name": "timeZone",
+                      "value": "timeZone"
+                    },
+                    {
+                      "name": "bookingStatus",
+                      "value": "bookingStatus"
+                    },
+                    {
+                      "name": "segmentIndex",
+                      "value": "segmentIndex"
+                    },
+                    {
+                      "name": "bookingStatusDescription",
+                      "value": "bookingStatusDescription"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "milestones",
+          "type": "ar",
+          "children": [
+            {
+              "name": "[0]",
+              "codeValue": "String eventType = it.eventType\r\nString carrierEventCode = it.carrierEventCode\r\nString eventCode = it.eventCode\r\nString description = it.description\r\nString station = it.station\r\ndef totalPieces = MapperUtility.convertToDouble(it.totalPieces)\r\ndef totalWeightValue = MapperUtility.convertToDouble(it.totalWeightValue)\r\nString totalWeightUnit = it.totalWeightUnit\r\ndef totalVolumeValue = MapperUtility.convertToDouble(it.totalVolumeValue)\r\nString totalVolumeUnit = it.totalVolumeUnit\r\nString timeZone = it.timeZone\r\nString eventTime = it.eventTime\r\ndef sequence = MapperUtility.convertToDouble(it.sequence)\r\nString estimatedDepartureTime = it.estimatedDepartureTime\r\nString estimatedArrivalTime = it.estimatedArrivalTime\r\nString actualDepartureTime = it.actualDepartureTime\r\nString scheduledArrivalTime = it.scheduledArrivalTime\r\nString scheduledDepartureTime = it.scheduledDepartureTime\r\nString actualArrivalTime = it.actualArrivalTime\r\nString vehicleNumber = it.vehicleNumber\r\nString transportMode = it.transportMode\r\nString departureLocation = it.departureLocation\r\nString arrivalLocation = it.arrivalLocation\r\nString transferManifestNumber = it.transferManifestNumber\r\nString transferredFromName = it.transferredFromName\r\nString receivedFromName = it.receivedFromName\r\nString deliveryToName = it.deliveryToName\r\nString notificationToName = it.notificationToName\r\nString receivingCarrier = it.receivingCarrier\r\nString transferringCarrier = it.transferringCarrier\r\nString discrepencyCode = it.discrepencyCode",
+              "type": "ac",
+              "looper": {
+                "loopStatement": "eventList.each"
+              },
+              "children": [
+                {
+                  "name": "eventType",
+                  "value": "eventType"
+                },
+                {
+                  "name": "carrierEventCode",
+                  "value": "carrierEventCode"
+                },
+                {
+                  "name": "eventCode",
+                  "value": "eventCode"
+                },
+                {
+                  "name": "description",
+                  "value": "description"
+                },
+                {
+                  "name": "station",
+                  "value": "station"
+                },
+                {
+                  "name": "totalPieces",
+                  "value": "totalPieces"
+                },
+                {
+                  "name": "totalWeight",
+                  "children": [
+                    {
+                      "name": "value",
+                      "value": "totalWeightValue"
+                    },
+                    {
+                      "name": "unit",
+                      "value": "totalWeightUnit"
+                    }
+                  ]
+                },
+                {
+                  "name": "totalVolume",
+                  "children": [
+                    {
+                      "name": "value",
+                      "value": "totalVolumeValue"
+                    },
+                    {
+                      "name": "unit",
+                      "value": "totalVolumeUnit"
+                    }
+                  ]
+                },
+                {
+                  "name": "timeZone",
+                  "value": "timeZone"
+                },
+                {
+                  "name": "eventTime",
+                  "value": "eventTime"
+                },
+                {
+                  "name": "sequence",
+                  "value": "sequence"
+                },
+                {
+                  "name": "estimatedDepartureTime",
+                  "value": "estimatedDepartureTime"
+                },
+                {
+                  "name": "estimatedArrivalTime",
+                  "value": "estimatedArrivalTime"
+                },
+                {
+                  "name": "actualDepartureTime",
+                  "value": "actualDepartureTime"
+                },
+                {
+                  "name": "scheduledArrivalTime",
+                  "value": "scheduledArrivalTime"
+                },
+                {
+                  "name": "scheduledDepartureTime",
+                  "value": "scheduledDepartureTime"
+                },
+                {
+                  "name": "actualArrivalTime",
+                  "value": "actualArrivalTime"
+                },
+                {
+                  "name": "ulds",
+                  "type": "ar",
+                  "children": [
+                    {
+                      "name": "[0]",
+                      "codeValue": "String number = it.number\n String type = it.type\n    String serialNumber = it.serialNumber\n    String ownerCode = it.ownerCode\n    String quantity = it.quantity\n    def weightOfULDContentsValue = MapperUtility.convertToDouble(it.weightOfULDContentsValue)\n    String weightOfULDContentsUnit = it.weightOfULDContentsUnit\n",
+                      "type": "ac",
+                      "looper": {
+                        "loopStatement": "it.uldList.each"
+                      },
+                      "children": [
+                        {
+                          "name": "type",
+                          "value": "type"
+                        },
+                        {
+                          "name": "number",
+                          "value": "number"
+                        },
+                        {
+                          "name": "serialNumber",
+                          "value": "serialNumber"
+                        },
+                        {
+                          "name": "ownerCode",
+                          "value": "ownerCode"
+                        },
+                        {
+                          "name": "quantity",
+                          "value": "quantity"
+                        },
+                        {
+                          "name": "weightOfULDContents",
+                          "children": [
+                            {
+                              "name": "value",
+                              "value": "weightOfULDContentsValue"
+                            },
+                            {
+                              "name": "unit",
+                              "value": "weightOfULDContentsUnit"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "vehicleNumber",
+                  "value": "vehicleNumber"
+                },
+                {
+                  "name": "transportMode",
+                  "value": "transportMode"
+                },
+                {
+                  "name": "departureLocation",
+                  "value": "departureLocation"
+                },
+                {
+                  "name": "arrivalLocation",
+                  "value": "arrivalLocation"
+                },
+                {
+                  "name": "transferManifestNumber",
+                  "value": "transferManifestNumber"
+                },
+                {
+                  "name": "transferredFromName",
+                  "value": "transferredFromName"
+                },
+                {
+                  "name": "receivedFromName",
+                  "value": "receivedFromName"
+                },
+                {
+                  "name": "deliveryToName",
+                  "value": "deliveryToName"
+                },
+                {
+                  "name": "notificationToName",
+                  "value": "notificationToName"
+                },
+                {
+                  "name": "receivingCarrier",
+                  "value": "receivingCarrier"
+                },
+                {
+                  "name": "transferringCarrier",
+                  "value": "transferringCarrier"
+                },
+                {
+                  "name": "discrepencyCode",
+                  "value": "discrepencyCode"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

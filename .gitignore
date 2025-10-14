@@ -1,0 +1,9 @@
+# Ignore specific model file
+codellama-13b.Q4_K_M.gguf
+
+# (Optional) Ignore all GGUF model files
+*.gguf
+
+
+ssl/
+.env

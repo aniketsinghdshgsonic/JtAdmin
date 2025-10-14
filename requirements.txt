@@ -1,0 +1,147 @@
+# # FastAPI and web framework
+# fastapi==0.104.1
+# uvicorn[standard]==0.24.0
+# pydantic==2.5.0
+# pydantic-settings==2.1.0
+# python-multipart==0.0.6
+
+# # Database
+# sqlalchemy==2.0.23
+# mysql-connector-python==8.2.0
+# pymysql==1.1.0
+# alembic==1.13.0
+
+# # AI and ML (compatible versions)
+# numpy==1.23.5
+# scipy==1.10.1
+# transformers==4.35.2
+# accelerate==0.24.0
+
+# # Utilities
+# python-dotenv==1.0.0
+# requests==2.31.0
+# aiofiles==23.2.1
+# python-json-logger==2.0.7
+
+# # Development and monitoring
+# prometheus-client==0.19.0
+# psutil==5.9.6
+
+# # Data processing
+# pandas==2.1.3
+# jsonschema==4.20.0
+
+# # Note: torch and llama-cpp-python installed separately in Dockerfile
+
+
+
+
+
+
+
+
+# # requirement.txt
+# # Flask and web framework dependencies
+# Flask==2.3.3
+# Flask-CORS==4.0.0
+# Werkzeug==2.3.7
+
+# # LLaMA model dependencies - FIXED VERSION
+# llama-cpp-python==0.2.11
+# numpy==1.24.3
+
+# # MySQL database dependencies
+# mysql-connector-python==8.1.0
+# PyMySQL==1.1.0
+
+# # Utility dependencies
+# python-dotenv==1.0.0
+# requests==2.31.0
+
+# # Development and testing dependencies
+# pytest==7.4.2
+# pytest-flask==1.3.0
+
+# # Logging and monitoring
+# gunicorn==21.2.0
+
+# # Optional: For better JSON handling
+# orjson==3.9.7
+
+# # Optional: For advanced text processing
+# regex==2023.8.8
+
+# # vector database client
+# pymilvus==2.3.4
+
+# # CUDA support dependencies (already handled by llama-cpp-python with CMAKE_ARGS)
+# # torch>=2.0.0
+# # torchvision>=0.15.0
+# # torchaudio>=2.0.0
+
+
+
+
+
+# requirements.txt with sentence transformers and gRPC for Milvus
+# Flask and web framework dependencies
+Flask==2.3.3
+Flask-CORS==4.0.0
+Werkzeug==2.3.7
+
+# CRITICAL FIX: Compatible marshmallow and environs versions (install first)
+marshmallow==3.20.1
+environs==10.3.0
+
+# gRPC dependencies for Milvus (fixed versions to avoid conflicts)
+grpcio==1.57.0
+grpcio-tools==1.57.0
+protobuf==4.24.4
+
+# Milvus vector database dependencies (compatible versions)
+ujson==5.8.0
+pandas==2.0.3
+pymilvus==2.3.4
+
+# Sentence Transformers for embedding generation
+sentence-transformers==2.2.2
+torch==2.0.1
+transformers==4.30.2
+tokenizers==0.13.3
+
+# LLaMA model dependencies (note: installed separately in Dockerfile with CUDA)
+# llama-cpp-python==0.2.11  # Commented out - installed via CMAKE in Dockerfile
+numpy==1.24.3
+
+# NVIDIA GPU support
+nvidia-ml-py==12.535.133
+
+# MySQL database dependencies
+mysql-connector-python==8.1.0
+PyMySQL==1.1.0
+
+# Core utility dependencies
+python-dotenv==1.0.0
+requests==2.31.0
+
+# JSON and text processing
+orjson==3.9.7
+regex==2023.8.8
+
+# Development and testing dependencies
+pytest==7.4.2
+pytest-flask==1.3.0
+
+# Web server and deployment
+gunicorn==21.2.0
+
+# Additional Flask dependencies (auto-installed but pinned for consistency)
+click==8.1.7
+itsdangerous==2.1.2
+jinja2==3.1.2
+markupsafe==2.1.3
+
+# Additional dependencies for sentence transformers
+scipy==1.10.1
+scikit-learn==1.3.0
+huggingface-hub==0.16.4
