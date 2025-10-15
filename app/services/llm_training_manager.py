@@ -17,12 +17,14 @@ import numpy as np
 from transformers import (
     AutoTokenizer,
     AutoModelForCausalLM,
+    AutoConfig,
     TrainingArguments,
     Trainer,
     DataCollatorForLanguageModeling,
     BitsAndBytesConfig,
     EarlyStoppingCallback,
     TrainerCallback,
+    LlamaForCausalLM,
 )
 from peft import (
     LoraConfig,
@@ -670,6 +672,27 @@ class LLMTrainingManager:
             )
 
         return adjusted_config
+
+    def _load_llama_with_fallback(self, model_path: str, **load_kwargs):
+        """Load a LLaMA family model with AutoModel fallback handling."""
+
+        config = AutoConfig.from_pretrained(model_path, trust_remote_code=True)
+        try:
+            return AutoModelForCausalLM.from_pretrained(
+                model_path, config=config, trust_remote_code=True, **load_kwargs
+            )
+        except (ValueError, OSError) as load_error:
+            error_text = str(load_error)
+            if "Unrecognized model" not in error_text and "model_type" not in error_text:
+                raise
+
+            logger.warning(
+                "AutoModel could not identify the model (%s). Falling back to LlamaForCausalLM.",
+                error_text,
+            )
+            return LlamaForCausalLM.from_pretrained(
+                model_path, config=config, trust_remote_code=True, **load_kwargs
+            )
 
     def get_latest_successful_job(self) -> Optional[str]:
         """Find the most recent successfully completed training job with robust fallback"""
@@ -1720,12 +1743,12 @@ class LLMTrainingManager:
                 tokenizer.pad_token_id = tokenizer.eos_token_id
 
             # Load base model with improved memory configuration
+            bnb_config = None
             if mem_config.get("cpu_fallback"):
                 # CPU fallback
-                model = AutoModelForCausalLM.from_pretrained(
+                model = self._load_llama_with_fallback(
                     model_path,
                     device_map="cpu",
-                    trust_remote_code=True,
                     torch_dtype=torch.float32,
                     use_cache=False,
                     low_cpu_mem_usage=True,
@@ -1746,22 +1769,18 @@ class LLMTrainingManager:
                         load_in_8bit=True,
                         llm_int8_threshold=6.0,
                     )
-                else:
-                    bnb_config = None
-
                 # IMPROVED: More conservative memory allocation
                 max_memory = {
                     0: mem_config.get("max_gpu", "6GB"),
                     "cpu": mem_config.get("max_cpu", "40GB"),
                 }
 
-                model = AutoModelForCausalLM.from_pretrained(
+                model = self._load_llama_with_fallback(
                     model_path,
                     quantization_config=bnb_config,
                     device_map="auto",
                     max_memory=max_memory,
-                    trust_remote_code=True,
-                    torch_dtype=torch.float16,
+                    torch_dtype=torch.bfloat16,
                     use_cache=False,
                     low_cpu_mem_usage=True,
                 )
@@ -1886,21 +1905,19 @@ class LLMTrainingManager:
                 max_gpu_memory = f"{safe_gpu_allocation}GB"
                 max_memory = {0: max_gpu_memory, "cpu": "28GB"}
 
-                model = AutoModelForCausalLM.from_pretrained(
+                model = self._load_llama_with_fallback(
                     model_path,
                     quantization_config=bnb_config,
                     device_map="auto",
                     max_memory=max_memory,
-                    trust_remote_code=True,
-                    torch_dtype=torch.bfloat16,
+                    torch_dtype=torch.float16,
                     use_cache=False,
                     low_cpu_mem_usage=True,
                 )
             else:
-                model = AutoModelForCausalLM.from_pretrained(
+                model = self._load_llama_with_fallback(
                     model_path,
                     device_map="cpu",
-                    trust_remote_code=True,
                     torch_dtype=torch.float32,
                     use_cache=False,
                     low_cpu_mem_usage=True,
