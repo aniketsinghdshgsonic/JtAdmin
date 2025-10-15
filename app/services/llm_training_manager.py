@@ -927,8 +927,13 @@ class LLMTrainingManager:
         """Optimize config with continual learning adjustments"""
         num_examples = len(examples)
         mapping_types = len(set(ex.get("mapping_type", "general") for ex in examples))
-
         optimized_config = base_config.copy()
+
+        # Establish conservative defaults before applying heuristics
+        optimized_config.setdefault("max_length", 1024)
+        optimized_config.setdefault("per_device_batch_size", 1)
+        optimized_config.setdefault("gradient_accumulation_steps", 1)
+        optimized_config.setdefault("lora_r", max(8, base_config.get("lora_r", 8)))
 
         # Base optimization
         if num_examples < 100:
@@ -938,7 +943,7 @@ class LLMTrainingManager:
                     "learning_rate": min(
                         5e-4, optimized_config.get("learning_rate", 2e-4) * 1.5
                     ),
-                    "lora_r": min(32, max(16, optimized_config.get("lora_r", 16) * 2)),
+                    "lora_r": min(12, max(8, optimized_config.get("lora_r", 8))),
                     "batch_size": 1,
                     "warmup_ratio": 0.1,
                 }
@@ -948,7 +953,7 @@ class LLMTrainingManager:
                 {
                     "epochs": optimized_config.get("epochs", 3),
                     "learning_rate": optimized_config.get("learning_rate", 2e-4),
-                    "lora_r": optimized_config.get("lora_r", 16),
+                    "lora_r": min(12, max(8, optimized_config.get("lora_r", 8))),
                     "batch_size": min(2, optimized_config.get("batch_size", 1)),
                     "warmup_ratio": 0.05,
                 }
@@ -960,7 +965,7 @@ class LLMTrainingManager:
                     "learning_rate": max(
                         1e-4, optimized_config.get("learning_rate", 2e-4) * 0.7
                     ),
-                    "lora_r": min(8, optimized_config.get("lora_r", 16)),
+                    "lora_r": min(10, max(8, optimized_config.get("lora_r", 8))),
                     "batch_size": min(4, optimized_config.get("batch_size", 1)),
                     "warmup_ratio": 0.03,
                 }
@@ -968,7 +973,7 @@ class LLMTrainingManager:
 
         if mapping_types > 3:
             optimized_config["epochs"] = max(optimized_config["epochs"], 4)
-            optimized_config["lora_r"] = max(optimized_config["lora_r"], 24)
+            optimized_config["lora_r"] = min(12, max(optimized_config["lora_r"], 10))
 
         # Auto-continual learning adjustments
         if is_continual:
@@ -978,6 +983,27 @@ class LLMTrainingManager:
                 0.15, optimized_config["warmup_ratio"] * 1.5
             )
             logger.info("Applied auto-continual learning optimizations")
+
+        # Final safety clamps
+        optimized_config["lora_r"] = max(4, min(int(optimized_config.get("lora_r", 8)), 12))
+        optimized_config["batch_size"] = max(
+            1, int(optimized_config.get("batch_size", 1))
+        )
+        optimized_config["max_length"] = max(
+            256, min(int(optimized_config.get("max_length", 1024)), 1536)
+        )
+        optimized_config["per_device_batch_size"] = max(
+            1, int(optimized_config.get("per_device_batch_size", 1))
+        )
+        optimized_config["gradient_accumulation_steps"] = max(
+            1,
+            int(
+                optimized_config.get(
+                    "gradient_accumulation_steps",
+                    optimized_config.get("batch_size", 1),
+                )
+            ),
+        )
 
         return optimized_config
 
@@ -1219,8 +1245,11 @@ class LLMTrainingManager:
         """Enhanced training execution with container restart capability and FIXED memory management"""
         job = self.jobs[job_id]
         self.active_training = True
+        # Persist effective config so helper methods can honor user overrides
+        job._effective_config = config
+
         try:
-        # FIXED: Use stored instance
+            # FIXED: Use stored instance
             if self.llama_manager and self.llama_manager.is_model_loaded():
                 logger.info("Unloading GGUF model to free GPU for training...")
                 self.llama_manager.unload_model()
@@ -1228,9 +1257,13 @@ class LLMTrainingManager:
                 gc.collect()
                 if torch.cuda.is_available():
                     torch.cuda.empty_cache()
-                logger.info(f"GPU memory freed. Available: {self._get_available_gpu_memory():.1f}GB")
+                logger.info(
+                    "GPU memory freed. Available: %.1fGB",
+                    self._get_available_gpu_memory(),
+                )
         except Exception as e:
             logger.warning(f"Could not unload GGUF: {e}")
+
         try:
             job.status = "running"
             self._save_jobs_to_disk()
@@ -1318,6 +1351,14 @@ class LLMTrainingManager:
                 Dataset.from_list(validation_data) if validation_data else None
             )
 
+            # Respect configurable sequence length while clamping for stability
+            max_seq_length = config.get("max_length")
+            if max_seq_length is None:
+                max_seq_length = config.get("sequence_length", 1024)
+            max_seq_length = int(max_seq_length)
+            max_seq_length = max(256, min(max_seq_length, 2048))
+            pad_to_multiple = 16 if max_seq_length >= 1024 else 8
+
             def tokenize_function(examples):
                 if isinstance(examples["text"], list):
                     texts = examples["text"]
@@ -1327,7 +1368,7 @@ class LLMTrainingManager:
                 result = tokenizer(
                     texts,
                     truncation=True,
-                    max_length=2048,
+                    max_length=max_seq_length,
                     padding=True,
                     return_tensors=None,
                 )
@@ -1359,11 +1400,27 @@ class LLMTrainingManager:
             job.total_epochs = config.get("epochs", 3)
             warmup_steps = int(len(train_tokenized) * config.get("warmup_ratio", 0.05))
 
-            # MORE CONSERVATIVE MEMORY SETTINGS FOR CONTINUAL LEARNING
-            per_device_batch_size = 1
+            # Memory-aware batch strategy with sane fallbacks
+            per_device_batch_size = max(
+                1, int(config.get("per_device_batch_size", 1))
+            )
             gradient_accumulation_steps = max(
-                4, config.get("batch_size", 1) * 4
-            )  # Reduced from 8
+                1,
+                int(
+                    config.get(
+                        "gradient_accumulation_steps",
+                        max(1, config.get("batch_size", 1)),
+                    )
+                ),
+            )
+            effective_batch = per_device_batch_size * gradient_accumulation_steps
+
+            bf16_available = (
+                self.cuda_available
+                and hasattr(torch.cuda, "is_bf16_supported")
+                and torch.cuda.is_bf16_supported()
+            )
+            fp16_enabled = self.cuda_available and not bf16_available
 
             training_args = TrainingArguments(
                 output_dir=job.output_path,
@@ -1374,7 +1431,7 @@ class LLMTrainingManager:
                 learning_rate=config.get("learning_rate", 2e-4),
                 weight_decay=0.01,
                 warmup_steps=warmup_steps,
-                logging_steps=max(1, len(train_tokenized) // 20),
+                logging_steps=max(1, len(train_tokenized) // max(10, effective_batch)),
                 eval_steps=max(10, len(train_tokenized) // 10)
                 if val_tokenized
                 else None,
@@ -1384,8 +1441,8 @@ class LLMTrainingManager:
                 load_best_model_at_end=True if val_tokenized else False,
                 metric_for_best_model="eval_loss" if val_tokenized else None,
                 greater_is_better=False,
-                bf16=self.cuda_available,
-                fp16=False,
+                bf16=bf16_available,
+                fp16=fp16_enabled,
                 gradient_checkpointing=self.cuda_available,
                 dataloader_pin_memory=False,  # Disable for memory conservation
                 remove_unused_columns=False,
@@ -1398,12 +1455,13 @@ class LLMTrainingManager:
                 dataloader_num_workers=0,  # Disable multiprocessing
                 max_steps=-1,
                 prediction_loss_only=True,
+                skip_memory_metrics=True,
             )
 
             data_collator = DataCollatorForLanguageModeling(
                 tokenizer=tokenizer,
                 mlm=False,
-                pad_to_multiple_of=8,
+                pad_to_multiple_of=pad_to_multiple,
             )
 
             # Setup callbacks
@@ -1435,8 +1493,11 @@ class LLMTrainingManager:
             job.message = f"Starting {training_type_msg} training..."
 
             logger.info(
-                f"Training configuration: batch_size={per_device_batch_size}, "
-                f"grad_accum={gradient_accumulation_steps}, epochs={job.total_epochs}"
+                "Training configuration: batch_size=%s, grad_accum=%s, epochs=%s, max_seq_len=%s",
+                per_device_batch_size,
+                gradient_accumulation_steps,
+                job.total_epochs,
+                max_seq_length,
             )
 
             # Execute training
@@ -1700,7 +1761,7 @@ class LLMTrainingManager:
                     device_map="auto",
                     max_memory=max_memory,
                     trust_remote_code=True,
-                    torch_dtype=torch.bfloat16,
+                    torch_dtype=torch.float16,
                     use_cache=False,
                     low_cpu_mem_usage=True,
                 )
@@ -1816,13 +1877,14 @@ class LLMTrainingManager:
                     load_in_4bit=True,
                     bnb_4bit_use_double_quant=True,
                     bnb_4bit_quant_type="nf4",
-                    bnb_4bit_compute_dtype=torch.bfloat16,
+                    bnb_4bit_compute_dtype=torch.float16,
                 )
 
                 # MORE CONSERVATIVE MEMORY ALLOCATION FOR FRESH TRAINING
                 available_memory = self._get_available_gpu_memory()
-                max_gpu_memory = f"{max(8, int(available_memory * 0.8))}GB"
-                max_memory = {0: max_gpu_memory, "cpu": "32GB"}
+                safe_gpu_allocation = min(max(6, int(available_memory * 0.7)), 18)
+                max_gpu_memory = f"{safe_gpu_allocation}GB"
+                max_memory = {0: max_gpu_memory, "cpu": "28GB"}
 
                 model = AutoModelForCausalLM.from_pretrained(
                     model_path,
@@ -1849,15 +1911,21 @@ class LLMTrainingManager:
                 model = prepare_model_for_kbit_training(
                     model, use_gradient_checkpointing=True
                 )
-
-            lora_r = 16
+            effective_config = getattr(job, "_effective_config", {}) or {}
+            lora_r = max(4, min(int(effective_config.get("lora_r", 8)), 16))
+            lora_alpha_default = max(lora_r * 2, 16)
             lora_config = LoraConfig(
                 task_type=TaskType.CAUSAL_LM,
                 inference_mode=False,
                 r=lora_r,
-                lora_alpha=lora_r * 2,
-                lora_dropout=0.1,
-                target_modules=["q_proj", "v_proj", "k_proj", "o_proj"],
+                lora_alpha=int(
+                    effective_config.get("lora_alpha", lora_alpha_default)
+                ),
+                lora_dropout=float(effective_config.get("lora_dropout", 0.05)),
+                target_modules=effective_config.get(
+                    "lora_target_modules",
+                    ["q_proj", "v_proj", "k_proj", "o_proj"],
+                ),
                 bias="none",
             )
 
